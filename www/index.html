@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <!-- Slidebars CSS -->
+	<link rel="stylesheet" href="css/slidebars/slidebars.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/topbar.css" />
+        <link rel="stylesheet" type="text/css" href="css/left.css" />
+        <link rel="stylesheet" type="text/css" href="css/right.css" />
+        <title>Drawing Grid</title>
+    </head>
+    <body style="height: 100%">
+        <div id="sb-site" style="height: 100%">
+            <nav class="navbar navbar-static-top navbar-inverse" role="navigation" style="height: 5%">
+                    <!-- Left Control -->
+                    <div class="sb-toggle-left navbar-left">
+                            <div class="navicon-line"></div>
+                            <div class="navicon-line"></div>
+                            <div class="navicon-line"></div>
+                    </div><!-- /.sb-control-left -->
+                    <!-- Right Control -->
+                    <div class="sb-toggle-right navbar-right">
+                            <div class="navicon-line"></div>
+                            <div class="navicon-line"></div>
+                            <div class="navicon-line"></div>
+                    </div><!-- /.sb-control-right -->
+            </nav>
+            <div style="width: 100%; height: 90%; border: 1px solid red;"/>
+
+            </div>
+            <div style="width: 100%; height: 5%; border: 1px solid red;"/>
+                C
+            </div>
+        </div>
+        <div class="sb-slidebar sb-left sb-style-overlay">
+            <button type="button" class="btn btn-default sb-toggle-left left-back-button">
+                <span class="glyphicon glyphicon-arrow-left"></span>
+            </button>
+        </div>
+        <div class="sb-slidebar sb-right sb-style-overlay">
+            <button type="button" class="btn btn-default sb-toggle-right right-back-button">
+                <span class="glyphicon glyphicon-arrow-right"></span>
+            </button>
+        </div>
+        <!--
+        <div class="app" style="border: 1px solid red">
+            <h1>PhoneGap</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
+        </div>
+        -->
+        <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+        <!-- jQuery -->
+        <script src="js/lib/jquery.min.js"></script>
+        <!-- Slidebars -->
+        <script src="js/lib/slidebars/slidebars.min.js"></script>
+        <script>
+                (function($) {
+                        $(document).ready(function() {
+                                $.slidebars();
+                        });
+                }) (jQuery);
+        </script>
+    </body>
+</html>
