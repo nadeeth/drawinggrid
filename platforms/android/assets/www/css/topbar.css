@@ -16,6 +16,7 @@
 
 .navbar {
     margin-bottom: 0px !important;
+    min-height: 10px !important;
 }
 
 .navbar-left, .navbar-right {

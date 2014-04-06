@@ -1,0 +1,16 @@
+/* 
+    Document   : right
+    Created on : Apr 5, 2014, 8:45:43 PM
+    Author     : nadeeth
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.sb-right {
+    overflow-y: hidden !important;
+    padding: 5px;
+}
+
+.right-back-button {
+    float: left;
+}

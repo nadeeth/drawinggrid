@@ -25,8 +25,12 @@
 /var/www/drawing-grid/platforms/android/assets/www/icon.png \
 /var/www/drawing-grid/platforms/android/assets/www/spec \
 /var/www/drawing-grid/platforms/android/assets/www/config.xml \
+/var/www/drawing-grid/platforms/android/assets/www/css/right.css \
 /var/www/drawing-grid/platforms/android/assets/www/css/index.css \
 /var/www/drawing-grid/platforms/android/assets/www/css/bootstrap \
+/var/www/drawing-grid/platforms/android/assets/www/css/topbar.css \
+/var/www/drawing-grid/platforms/android/assets/www/css/left.css \
+/var/www/drawing-grid/platforms/android/assets/www/css/slidebars \
 /var/www/drawing-grid/platforms/android/assets/www/css/bootstrap/css \
 /var/www/drawing-grid/platforms/android/assets/www/css/bootstrap/fonts \
 /var/www/drawing-grid/platforms/android/assets/www/css/bootstrap/js \
@@ -42,6 +46,7 @@
 /var/www/drawing-grid/platforms/android/assets/www/css/bootstrap/fonts/glyphicons-halflings-regular.eot \
 /var/www/drawing-grid/platforms/android/assets/www/css/bootstrap/js/bootstrap.min.js \
 /var/www/drawing-grid/platforms/android/assets/www/css/bootstrap/js/bootstrap.js \
+/var/www/drawing-grid/platforms/android/assets/www/css/slidebars/slidebars.min.css \
 /var/www/drawing-grid/platforms/android/assets/www/img/logo.png \
 /var/www/drawing-grid/platforms/android/assets/www/res/icon \
 /var/www/drawing-grid/platforms/android/assets/www/res/screen \
@@ -105,6 +110,10 @@
 /var/www/drawing-grid/platforms/android/assets/www/res/screen/ios/screen-ipad-portrait.png \
 /var/www/drawing-grid/platforms/android/assets/www/res/screen/blackberry/screen-225.png \
 /var/www/drawing-grid/platforms/android/assets/www/js/index.js \
+/var/www/drawing-grid/platforms/android/assets/www/js/lib \
+/var/www/drawing-grid/platforms/android/assets/www/js/lib/jquery.min.js \
+/var/www/drawing-grid/platforms/android/assets/www/js/lib/slidebars \
+/var/www/drawing-grid/platforms/android/assets/www/js/lib/slidebars/slidebars.min.js \
 /var/www/drawing-grid/platforms/android/assets/www/spec/index.js \
 /var/www/drawing-grid/platforms/android/assets/www/spec/lib \
 /var/www/drawing-grid/platforms/android/assets/www/spec/helper.js \
