@@ -7,8 +7,8 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <!-- Slidebars CSS -->
-	<link rel="stylesheet" href="css/slidebars/slidebars.min.css">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="lib/slidebars/slidebars.min.css" />
+        <link rel="stylesheet" href="lib/jquery.mobile/jquery.mobile-1.4.2.min.css" />
         <link rel="stylesheet" type="text/css" href="css/header.css" />
         <link rel="stylesheet" type="text/css" href="css/body.css" />
         <link rel="stylesheet" type="text/css" href="css/footer.css" />
@@ -18,20 +18,12 @@
     </head>
     <body>
         <div id="sb-site">
-            <nav class="navbar navbar-static-top navbar-inverse" role="navigation">
-                    <!-- Left Control -->
-                    <div class="sb-toggle-left navbar-left">
-                            <div class="navicon-line"></div>
-                            <div class="navicon-line"></div>
-                            <div class="navicon-line"></div>
-                    </div><!-- /.sb-control-left -->
-                    <!-- Right Control -->
-                    <div class="sb-toggle-right navbar-right">
-                            <div class="navicon-line"></div>
-                            <div class="navicon-line"></div>
-                            <div class="navicon-line"></div>
-                    </div><!-- /.sb-control-right -->
-            </nav>
+            <div class="navbar" data-role="header" data-theme="b">
+                <a href="#" class="sb-toggle-left ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-bars">Settings</a>
+                <h6>Drawing Grid</h6>
+                <button class="sb-toggle-right ui-btn-right ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-eye">Filters
+                </button>
+            </div>
             <div class="body">
                 <table class="grid">
                     <tr>
@@ -85,9 +77,10 @@
             app.initialize();
         </script>
         <!-- jQuery -->
-        <script src="js/lib/jquery.min.js"></script>
+        <script src="lib/jquery.min.js"></script>
         <!-- Slidebars -->
-        <script src="js/lib/slidebars/slidebars.min.js"></script>
+        <script src="lib/slidebars/slidebars.min.js"></script>
+        <script src="lib/jquery.mobile/jquery.mobile-1.4.2.min.js"></script>
         <script>
             (function($) {
                     $(document).ready(function() {

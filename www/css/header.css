@@ -6,29 +6,9 @@
         Purpose of the stylesheet follows.
 */
 
-.navicon-line {
-    width: 24px;
-    height: 4px;
-    border-radius: 1px;
-    margin-bottom: 3px;
-    background-color: #fff;
-}
-
 .navbar {
     margin-bottom: 0px !important;
     min-height: 10px !important;
-    height: 10% !important;
+    height: 8% !important;
 }
 
-.navbar-left, .navbar-right {
-    width: 58px;
-    padding: 14px;
-}
-
-.navbar-left {
-    float: left !important;
-}
-
-.navbar-right {
-    float: right !important;
-}
