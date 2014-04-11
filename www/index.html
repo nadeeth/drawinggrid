@@ -81,12 +81,14 @@
         <!-- Slidebars -->
         <script src="lib/slidebars/slidebars.min.js"></script>
         <script src="lib/draggable_background.js"></script>
+        <script src="lib/pinch_zoom.js"></script>
         <script src="lib/jquery.mobile/jquery.mobile-1.4.2.min.js"></script>
         <script>
             (function($) {
                 $(document).ready(function() {
                     $.slidebars();
                     $('.body').backgroundDraggable();
+                    $('.body').pinchZoom();
                 });
             }) (jQuery);
         </script>
