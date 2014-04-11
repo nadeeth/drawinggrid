@@ -7,33 +7,48 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <!-- Slidebars CSS -->
-	<link rel="stylesheet" href="css/slidebars/slidebars.min.css">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap/css/bootstrap.min.css" />
-        <link rel="stylesheet" type="text/css" href="css/topbar.css" />
+	<link rel="stylesheet" href="lib/slidebars/slidebars.min.css" />
+        <link rel="stylesheet" href="lib/jquery.mobile/jquery.mobile-1.4.2.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/header.css" />
+        <link rel="stylesheet" type="text/css" href="css/body.css" />
+        <link rel="stylesheet" type="text/css" href="css/footer.css" />
         <link rel="stylesheet" type="text/css" href="css/left.css" />
         <link rel="stylesheet" type="text/css" href="css/right.css" />
         <title>Drawing Grid</title>
     </head>
-    <body style="height: 100%">
-        <div id="sb-site" style="height: 100%">
-            <nav class="navbar navbar-static-top navbar-inverse" role="navigation" style="height: 8% !important;">
-                    <!-- Left Control -->
-                    <div class="sb-toggle-left navbar-left">
-                            <div class="navicon-line"></div>
-                            <div class="navicon-line"></div>
-                            <div class="navicon-line"></div>
-                    </div><!-- /.sb-control-left -->
-                    <!-- Right Control -->
-                    <div class="sb-toggle-right navbar-right">
-                            <div class="navicon-line"></div>
-                            <div class="navicon-line"></div>
-                            <div class="navicon-line"></div>
-                    </div><!-- /.sb-control-right -->
-            </nav>
-            <div style="width: 100%; height: 87%; border: 1px solid red;"/>
-
+    <body>
+        <div id="sb-site">
+            <div class="navbar" data-role="header" data-theme="b">
+                <a href="#" class="sb-toggle-left ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-bars">Settings</a>
+                <h6>Drawing Grid</h6>
+                <button class="sb-toggle-right ui-btn-right ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-eye">Filters
+                </button>
             </div>
-            <div style="width: 100%; height: 5%; border: 1px solid red;"/>
+            <div class="body">
+                <table class="grid">
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="footer"/>
                 C
             </div>
         </div>
@@ -62,15 +77,22 @@
             app.initialize();
         </script>
         <!-- jQuery -->
-        <script src="js/lib/jquery.min.js"></script>
+        <script src="lib/jquery.min.js"></script>
         <!-- Slidebars -->
-        <script src="js/lib/slidebars/slidebars.min.js"></script>
+        <script src="lib/slidebars/slidebars.min.js"></script>
+        <script src="lib/draggable_background.js"></script>
+        <script src="lib/pinch_zoom.js"></script>
+        <script src="lib/jquery.mobile/jquery.mobile-1.4.2.min.js"></script>
         <script>
-                (function($) {
-                        $(document).ready(function() {
-                                $.slidebars();
-                        });
-                }) (jQuery);
+            (function($) {
+                $(document).ready(function() {
+                    $.slidebars();
+                    $('.body').backgroundDraggable();
+                    $('.body').pinchZoom();
+                    image_width = $(document).width()
+                    $('.body').css('background-size', 'auto ' + image_width + 'px')
+                });
+            }) (jQuery);
         </script>
     </body>
 </html>

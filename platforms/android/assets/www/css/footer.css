@@ -1,0 +1,14 @@
+/* 
+    Document   : body
+    Created on : Apr 7, 2014, 12:27:20 AM
+    Author     : nadeeth
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.footer {
+    width: 100%; 
+    height: 4%; 
+    border: 1px solid red;
+}
+
