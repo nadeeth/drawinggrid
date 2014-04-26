@@ -8,7 +8,9 @@
 
 .footer {
     width: 100%; 
-    height: 4%; 
+    height: 30px; 
     border: 1px solid red;
+    position: absolute;
+    bottom: 0;
 }
 

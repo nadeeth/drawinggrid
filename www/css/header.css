@@ -9,6 +9,39 @@
 .navbar {
     margin-bottom: 0px !important;
     min-height: 10px !important;
-    height: 8% !important;
+    height: 70px !important;
+    vertical-align: central !important;
+}
+
+.menu-link-left {
+    font-size: 55px;
+    padding: 15px;
+    width: 40px;
+}
+.menu-link-right {
+    background-image: url("../img/filter.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    font-size: 55px;
+    height: 40px;
+    position: absolute;
+    right: 15px;
+    top: 12px;
+    width: 40px;
+}
+.icon-bar {
+    display: block;
+    height: 5px;
+    margin: 5px 0 0;
+    width: 100%;
+    background-color: #FFFFFF;
+}
+.menu-header {
+    margin-left: 45%;
+    margin-right: 45%;
+    position: absolute;
+    text-align: center !important;
+    top: 5px;
+    width: 10%;
 }
 
