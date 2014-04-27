@@ -11,6 +11,8 @@
     min-height: 10px !important;
     height: 70px !important;
     vertical-align: central !important;
+    background-color: #000;
+    color: #FFFFFF;
 }
 
 .menu-link-left {
