@@ -5,24 +5,24 @@
         <meta name="format-detection" content="telephone=no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="styles/index.css" />
         <!-- Slidebars CSS -->
 	<link rel="stylesheet" href="lib/slidebars/slidebars.min.css" />
         <link rel="stylesheet" href="lib/jquery.mobile/jquery.mobile-1.4.2.min.css" />
-        <link rel="stylesheet" type="text/css" href="css/header.css" />
-        <link rel="stylesheet" type="text/css" href="css/body.css" />
-        <link rel="stylesheet" type="text/css" href="css/footer.css" />
-        <link rel="stylesheet" type="text/css" href="css/left.css" />
-        <link rel="stylesheet" type="text/css" href="css/right.css" />
+        <link rel="stylesheet" type="text/css" href="styles/css/styles.css" />
         <title>Drawing Grid</title>
     </head>
     <body>
         <div id="sb-site">
-            <div class="navbar" data-role="header" data-theme="b">
-                <a href="#" class="sb-toggle-left ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-bars">Settings</a>
-                <h6>Drawing Grid</h6>
-                <button class="sb-toggle-right ui-btn-right ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-eye">Filters
-                </button>
+            <div class="navbar">
+                <div class="menu-link-left sb-toggle-left">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </div>
+                <div class="menu-header"><h6>Drawing Grid</h6></div>
+                <div class="menu-link-right sb-toggle-right">
+                </div>
             </div>
             <div class="body">
                 <table class="grid">
@@ -83,16 +83,7 @@
         <script src="lib/draggable_background.js"></script>
         <script src="lib/pinch_zoom.js"></script>
         <script src="lib/jquery.mobile/jquery.mobile-1.4.2.min.js"></script>
-        <script>
-            (function($) {
-                $(document).ready(function() {
-                    $.slidebars();
-                    $('.body').backgroundDraggable();
-                    $('.body').pinchZoom();
-                    image_width = $(document).width()
-                    $('.body').css('background-size', 'auto ' + image_width + 'px')
-                });
-            }) (jQuery);
-        </script>
+        <!-- App -->
+        <script src="js/app.js"></script>
     </body>
 </html>
