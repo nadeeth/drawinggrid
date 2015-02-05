@@ -9,8 +9,8 @@ var ESC_KEY = 27;
 //});
 (function($) {
     $(function() {
+		'use strict';
         $.slidebars();
-        $('.body').backgroundDraggable();
-        $('.body').pinchZoom();
+		new app.HomeView();
     });
 })(jQuery);

@@ -12,6 +12,7 @@
         <title>Drawing Grid</title>
     </head>
     <body>
+		
         <div id="sb-site">
             <div class="navbar">
                 <div class="menu-link-left sb-toggle-left">
@@ -23,28 +24,9 @@
                 <div class="menu-link-right sb-toggle-right">
                 </div>
             </div>
-            <div class="body">
+            <div id="active-grid">
                 <table class="grid">
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    
                 </table>
             </div>
             <div class="footer"/>
@@ -61,6 +43,7 @@
                 <span class=""></span>
             </button>
         </div>
+		
         <!--
         <div class="app" style="border: 1px solid red">
             <h1>PhoneGap</h1>
@@ -75,13 +58,20 @@
         <script type="text/javascript">
             app.initialize();
         </script>
-        <!-- jQuery -->
+		
+		<!-- Libraries -->
         <script src="lib/jquery.min.js"></script>
-        <!-- Slidebars -->
+		<script src="lib/underscore-min.js"></script>
+		<script src="lib/backbone-min.js"></script>
         <script src="lib/slidebars/slidebars.min.js"></script>
         <script src="lib/draggable_background.js"></script>
         <script src="lib/pinch_zoom.js"></script>
+		
         <!-- App -->
+		<script src="app/models/grid.js"></script>
+		<script src="app/collections/list.js"></script>
+		<script src="app/views/home-view.js"></script>
         <script src="app/app.js"></script>
+		
     </body>
 </html>
