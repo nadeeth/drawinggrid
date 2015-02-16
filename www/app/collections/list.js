@@ -9,8 +9,15 @@ var app = app || {};
 		model: app.Grid,
 
 		// Save all the grids under the `"grids"` namespace
-		//localStorage: new Backbone.LocalStorage('grids-list'),
-
+		localStorage: new Backbone.LocalStorage('grids-list'),
+		
+		// Next order number for new grid items
+        nextOrder: function () {
+            if (!this.length) {
+                return 1;
+            }
+            return this.last().get('order') + 1;
+        }
 	});
 
 	// Create our global collection of **Items**.

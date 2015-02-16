@@ -23,15 +23,19 @@ var app = app || {};
 		//Draw grid
 		draw_grid: function(grid) {
 			
-			var grid = "";			
-			for (var i=0; i<4; i++) {
-				grid += "<tr>";
-				for (var j=0; j<3; j++) {
-					grid += "<td></td>";
+			var grid = localStorage.getItem('current_grid');
+			grid = grid ? new app.Grid(JSON.parse(grid)) : new app.Grid;
+			
+			var grid_html = "";			
+			for (var i=0; i<grid.get("rows"); i++) {
+				grid_html += "<tr>";
+				for (var j=0; j<grid.get("cols"); j++) {
+					grid_html += "<td></td>";
 				}
-				grid += "</tr>";
+				grid_html += "</tr>";
 			}
-			$(this.el).find(".grid").html(grid);
+			
+			$(this.el).find(".grid").html(grid_html);
 			$(this.el).css("background-image","url('img/sample.jpg')");
 			$(this.el).css("background-position","center center");
 			$(this.el).css("background-size","cover");
