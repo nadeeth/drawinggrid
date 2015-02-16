@@ -12,5 +12,6 @@ var ESC_KEY = 27;
 		'use strict';
         $.slidebars();
 		new app.HomeView();
+		new app.ListView();
     });
 })(jQuery);

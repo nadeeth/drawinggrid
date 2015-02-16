@@ -9,7 +9,7 @@ var app = app || {};
 
         // Create New Items
         events: {
-            
+            'click #save_grid':'saveGrid'
         },
 
         // Bind to the relevant events at intialization 
@@ -19,12 +19,14 @@ var app = app || {};
         },
 
         render: function () {
-
+			
         },
 
-        // Add a single list item
-        addOne: function (item) {
-
+        // Add grid
+        saveGrid: function (e) {
+			
+			//app.list.create("{a:b}");
+			new app.HomeView();
         },
 
         // Add all items in the list

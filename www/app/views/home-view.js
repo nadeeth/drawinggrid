@@ -21,7 +21,7 @@ var app = app || {};
         },
 		
 		//Draw grid
-		draw_grid: function() {
+		draw_grid: function(grid) {
 			
 			var grid = "";			
 			for (var i=0; i<4; i++) {

@@ -33,18 +33,21 @@
                 C
             </div>
         </div>
-        <div class="sb-slidebar sb-left sb-style-overlay">
+		
+        <div id="list-section" class="sb-slidebar sb-left sb-style-overlay">
             <button type="button" class="btn btn-default sb-toggle-left left-back-button">
                 <span class=""></span>
             </button>
             <div id="add_new">
-                <label>Title</label><input type="text" name="title"/>
-                <label>Rows</label><input type="text" name="rows"/>
-                <label>Columns</label><input type="text" name="cols"/>
-                <label>Image</label><input type="text" name="img"/>
-                <label>Color</label><input type="text" name="color"/>
+                <label>Title</label><input type="text" id="title"/>
+                <label>Rows</label><input type="text" id="rows"/>
+                <label>Columns</label><input type="text" id="cols"/>
+                <label>Image</label><input type="text" id="img"/>
+                <label>Color</label><input type="text" id="color"/>
+				<button id="save_grid">Save</button>
             </div>
         </div>
+		
         <div class="sb-slidebar sb-right sb-style-overlay">
             <button type="button" class="btn btn-default sb-toggle-right right-back-button">
                 <span class=""></span>
@@ -78,6 +81,7 @@
 		<script src="app/models/grid.js"></script>
 		<script src="app/collections/list.js"></script>
 		<script src="app/views/home-view.js"></script>
+		<script src="app/views/list-view.js"></script>
         <script src="app/app.js"></script>
 		
     </body>
