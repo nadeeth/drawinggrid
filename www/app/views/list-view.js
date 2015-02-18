@@ -9,7 +9,8 @@ var app = app || {};
 
         // Create New Items
         events: {
-            'click #save_grid':'saveGrid'
+            'click #save_grid':'saveGrid',
+            'click #btn_camera':'getPhoto'
         },
 
         // Bind to the relevant events at intialization 
@@ -57,6 +58,10 @@ var app = app || {};
 
         setCurrentGrid: function(grid) {
                 localStorage.setItem('current_grid', JSON.stringify(grid));
+        },
+        
+        getPhoto: function() {
+            navigator.camera.getPicture(function(){}, function(){}, { quality: 50 });
         }
 
         // Add all items in the list
