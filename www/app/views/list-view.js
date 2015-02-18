@@ -25,11 +25,11 @@ var app = app || {};
 		// Get the list of attributes for a new item
         getAttributes: function () {
             return {
-                title: $("#title").val().trim(),
-				rows: $("#rows").val().trim(),
-				cols: $("#cols").val().trim(),
-				img: $("#img").val().trim(),
-				color: $("#color").val().trim(),
+                //title: $("#title").val().trim(),
+                rows: $("#rows").val().trim(),
+                cols: $("#cols").val().trim(),
+                img: $("#img").val().trim(),
+                color: $("#color").val().trim(),
                 order: app.list.nextOrder()
             };
         },
@@ -37,27 +37,27 @@ var app = app || {};
         // Add grid
         saveGrid: function (e) {
 
-			var grid = this.getAttributes();
-			
-			//TODO: remove later after the full list is enabled
-			app.list.each(function(model) {
-				model.destroy();
-			});
-			
-			app.list.create(grid);
-			this.setCurrentGrid(grid);
-			new app.HomeView();
+            var grid = this.getAttributes();
+
+            //TODO: remove later after the full list is enabled
+            app.list.each(function(model) {
+                    model.destroy();
+            });
+
+            app.list.create(grid);
+            this.setCurrentGrid(grid);
+            new app.HomeView();
         },
 		
-		clearGridsList: function() {
-			app.list.each(function(model) {
-				model.destroy();
-			});
-		},
-		
-		setCurrentGrid: function(grid) {
-			localStorage.setItem('current_grid', JSON.stringify(grid));
-		}
+        clearGridsList: function() {
+                app.list.each(function(model) {
+                        model.destroy();
+                });
+        },
+
+        setCurrentGrid: function(grid) {
+                localStorage.setItem('current_grid', JSON.stringify(grid));
+        }
 
         // Add all items in the list
 //        addAll: function () {

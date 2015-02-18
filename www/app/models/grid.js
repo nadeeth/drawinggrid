@@ -13,7 +13,7 @@ var app = app || {};
 
 		// Default attributes
 		defaults: {
-			title: 'Default',
+			//title: 'Default',
 			rows: 4,
 			cols: 3,
 			img: '',
