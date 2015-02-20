@@ -11,6 +11,8 @@
         <link rel="stylesheet" type="text/css" href="styles/css/styles.css" />
         <!-- Bootstrap -->
         <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+		<!-- jQuery minicolors -->
+		<link rel="stylesheet" href="lib/jquery-minicolors/jquery.minicolors.css">
         <title>Drawing Grid</title>
     </head>
     <body>
@@ -50,10 +52,11 @@
 						<div class="form-group">
 							<input type="text" class="form-control" id="cols" placeholder="Columns">
 						</div>
-						<input type="hidden" id="img">
 						<div class="form-group">
-							<input type="text" class="form-control" id="color" placeholder="Grid Color">
+							<input type="text" value="" class="form-control" id="color" placeholder="Grid Color">
 						</div>
+						<input type="hidden" id="img"/>
+						<input type="hidden" id="color_code"/>
 					</form>
 					<button class="btn btn-default" id=btn_camera>
 						Photo
@@ -100,6 +103,7 @@
         <script src="lib/draggable_background.js"></script>
         <script src="lib/pinch_zoom.js"></script>
         <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+		<script src="lib/jquery-minicolors/jquery.minicolors.js"></script>
 		
         <!-- App -->
         <script src="app/models/grid.js"></script>

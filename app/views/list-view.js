@@ -17,10 +17,17 @@ var app = app || {};
         initialize: function () {
 			//{reset: true} - To suppresses 'add' events for intial loading 
 			app.list.fetch({reset: true});
+			$('#color').minicolors({//Initialize the color picker
+				theme: 'bootstrap',
+				defaultValue: 'ff0000',
+				change: function(hex, opacity) {
+					$('#color_code').val(hex);
+				}
+			});
         },
 
-        render: function () {
-			
+        renderCurrentGrid: function () {
+			var grid = localStorage.getItem('current_grid');
         },
 		
 		// Get the list of attributes for a new item
@@ -30,7 +37,7 @@ var app = app || {};
                 rows: $("#rows").val().trim(),
                 cols: $("#cols").val().trim(),
                 img: $("#img").val().trim(),
-                color: $("#color").val().trim(),
+                color: $("#color_code").val().trim(),
                 order: app.list.nextOrder()
             };
         },
