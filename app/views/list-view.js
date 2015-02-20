@@ -80,7 +80,7 @@ var app = app || {};
                 localStorage.setItem('current_grid', JSON.stringify(grid));
         },
         
-        getPhoto: function() {
+        getPhoto: function() {alert('hi');
             navigator.camera.getPicture(function(){}, function(){}, { quality: 50 });
         }
 

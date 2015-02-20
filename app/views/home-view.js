@@ -15,7 +15,7 @@ var app = app || {};
         // Bind to the relevant events at intialization 
         initialize: function () {
 			this.draw_grid();
-			$(this.el).backgroundDraggable();
+			$(this.el).backgroundDraggable({ bound: false });
 			$(this.el).pinchZoom();
 			//Bind the pinch zoom, drag initilizations to here
         },
