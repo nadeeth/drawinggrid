@@ -25,14 +25,16 @@
                     <span class="icon-bar"></span>
                 </div>
                 <div class="menu-header"><h6>Drawing Grid</h6></div>
+                <!--
                 <div class="menu-link-right sb-toggle-right">
                 </div>
+                -->
             </div>
             <div id="active-grid">
                 <table class="grid"></table>
             </div>
-            <div class="footer"/>
-                C
+            <div class="footer">
+            <a href="camera.html">camera</a>
             </div>
         </div>
 		
@@ -56,8 +58,12 @@
 						<input type="hidden" id="img"/>
 						<input type="hidden" id="color_code"/>
 					</form>
-					<button class="btn btn-default" id=btn_camera>
-						Photo
+					<button class="btn btn-default" id=btn_photo_camera>
+						Camera
+						<span class="glyphicon glyphicon-camera"></span>
+					</button>
+                                        <button class="btn btn-default" id=btn_photo_file>
+						Choose Photo
 						<span class="glyphicon glyphicon-camera"></span>
 					</button>
 					<button class="btn btn-default" id="save_grid">
@@ -71,11 +77,13 @@
             </div>
         </div>
 		
+        <!--
         <div class="sb-slidebar sb-right sb-style-overlay">
             <button type="button" class="btn btn-default sb-toggle-right right-back-button">
                 <span class="glyphicon glyphicon-arrow-right"></span>
             </button>
         </div>
+        -->
 		
         <!--
         <div class="app" style="border: 1px solid red">
@@ -86,7 +94,7 @@
             </div>
         </div>
         -->
-        <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="app/index.js"></script>
         <script type="text/javascript">
             app.initialize();

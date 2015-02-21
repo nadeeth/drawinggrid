@@ -10,7 +10,8 @@ var app = app || {};
         // Create New Items
         events: {
             'click #save_grid':'saveGrid',
-            'click #btn_camera':'getPhoto'
+            'click #btn_photo_camera':'getPhotoCamera',
+            'click #btn_photo_file':'getPhotoFile'
         },
 
         // Bind to the relevant events at intialization 
@@ -29,8 +30,9 @@ var app = app || {};
 				grid = new app.Grid(JSON.parse(grid));
 				$("#rows").val(grid.get("rows"));
                 $("#cols").val(grid.get("cols"));
-                //$("#img").val()
+                $("#img").val(grid.get("img"));
                 $("#color_code").val(grid.get("color"));
+                $("#image_preview").css("background-image","url('"+grid.get('img')+"')");
 				picker_color = grid.get("color");
 			}
 			
@@ -80,8 +82,36 @@ var app = app || {};
                 localStorage.setItem('current_grid', JSON.stringify(grid));
         },
         
-        getPhoto: function() {alert('hi');
-            navigator.camera.getPicture(function(){}, function(){}, { quality: 50 });
+        getPhotoFile: function() {
+            navigator.camera.getPicture(
+                function(uri){
+                    $("#img").val(uri);
+                    $("#image_preview").css("background-image", "url('"+uri+"')");
+                }, 
+                function(msg){
+                    alert(msg);
+                }, 
+                { 
+                    quality: 50, 
+                    destinationType: navigator.camera.DestinationType.FILE_URI,
+                    sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY 
+                });
+        },
+        
+        getPhotoCamera: function() {
+            navigator.camera.getPicture(
+                function(uri){
+                    $("#img").val(uri);
+                    $("#image_preview").css("background-image", "url('"+uri+"')");
+                }, 
+                function(msg){
+                    alert(msg);
+                }, 
+                { 
+                    quality: 50, 
+                    destinationType: Camera.DestinationType.FILE_URI 
+                }
+            );
         }
 
         // Add all items in the list

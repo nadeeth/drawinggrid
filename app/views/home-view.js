@@ -36,7 +36,7 @@ var app = app || {};
 			}
 			
 			$(this.el).find(".grid").html(grid_html).find("td").css("border","1px solid "+grid.get("color"));
-			$(this.el).css("background-image","url('img/sample.jpg')");
+			$(this.el).css("background-image","url('"+grid.get('img')+"')");
 			$(this.el).css("background-position","center center");
 			$(this.el).css("background-size","cover");
 		}

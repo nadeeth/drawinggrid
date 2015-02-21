@@ -20,6 +20,7 @@ and open the template in the editor.
     width: 100%;
     height: 100%;
     border-collapse: collapse;
+    pointer-events: none;
     td {
         border: 1px solid red;
     }
@@ -80,24 +81,24 @@ and open the template in the editor.
 .left-back-button {
     float: right;
     margin-bottom: 5px !important;
-	position: absolute;
-	right: 10px;
+    position: absolute;
+    right: 10px;
 }
 #add_new {
 	
-	.cols {
-		margin-top: 50px;
-		width: 50%;
-		height: 200px;
-		float: left;
-		padding: 5px;
-		
-		#image_preview {
-			width: 100%;
-			height: 95%;
-			background-image: url("../../img/sample.jpg");
-		}
-	}
+    .cols {
+        margin-top: 50px;
+        width: 50%;
+        height: 200px;
+        float: left;
+        padding: 5px;
+
+        #image_preview {
+            width: 100%;
+            height: 95%;
+            background-image: url("../../img/sample.jpg");
+        }
+    }
 }
 
 //Filters section
@@ -111,9 +112,9 @@ and open the template in the editor.
 }
 
 .footer {
+    background-color: #000;
     width: 100%; 
-    height: 30px; 
-    border: 1px solid red;
+    height: 30px;
     position: absolute;
     bottom: 0;
 }
