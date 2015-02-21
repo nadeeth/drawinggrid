@@ -34,7 +34,6 @@
                 <table class="grid"></table>
             </div>
             <div class="footer">
-            <a href="camera.html">camera</a>
             </div>
         </div>
 		
@@ -43,37 +42,39 @@
                 <span class="glyphicon glyphicon-arrow-left"></span>
             </button>
             <div id="add_new">
-				<div class="cols">
-					<!-- Form with twitter bootstrap form styles -->
-					<form>
-						<div class="form-group">
-							<input type="text" class="form-control" id="rows" placeholder="Rows">
-						</div>
-						<div class="form-group">
-							<input type="text" class="form-control" id="cols" placeholder="Columns">
-						</div>
-						<div class="form-group">
-							<input type="text" value="" class="form-control" id="color" placeholder="Grid Color">
-						</div>
-						<input type="hidden" id="img"/>
-						<input type="hidden" id="color_code"/>
-					</form>
-					<button class="btn btn-default" id=btn_photo_camera>
-						Camera
-						<span class="glyphicon glyphicon-camera"></span>
-					</button>
-                                        <button class="btn btn-default" id=btn_photo_file>
-						Choose Photo
-						<span class="glyphicon glyphicon-camera"></span>
-					</button>
-					<button class="btn btn-default" id="save_grid">
-						Save
-						<span class="glyphicon glyphicon-save"></span>
-					</button>
-				</div>
-				<div class="cols">
-					<div id="image_preview"></div>
-				</div>
+                <div class="cols">
+                    <!-- Form with twitter bootstrap form styles -->
+                    <form>
+                        <div class="form-group">
+                            <input type="number" class="form-control" id="rows" placeholder="Rows">
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control" id="cols" placeholder="Columns">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" value="" class="form-control" id="color" placeholder="Grid Color">
+                        </div>
+                        <input type="hidden" id="img"/>
+                        <input type="hidden" id="color_code"/>
+                    </form>
+                </div>
+                <div class="cols">
+                    <div id="image_preview"></div>
+                </div>
+                <div>
+                    <button class="btn btn-primary btn-lg" id=btn_photo_camera>
+                        Camera
+                        <span class="glyphicon glyphicon-camera"></span>
+                    </button>
+                    <button class="btn btn-primary btn-lg" id=btn_photo_file>
+                        Choose Photo
+                        <span class="glyphicon glyphicon-picture"></span>
+                    </button>
+                    <button class="btn btn-primary btn-lg" id="save_grid">
+                        Save
+                        <span class="glyphicon glyphicon-save"></span>
+                    </button>
+                </div>
             </div>
         </div>
 		

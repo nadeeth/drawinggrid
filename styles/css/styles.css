@@ -85,8 +85,16 @@ and open the template in the editor.
 }
 #add_new .cols #image_preview {
   width: 100%;
-  height: 95%;
-  background-image: url("../../img/sample.jpg");
+  height: 100%;
+  background-color: #fff;
+  background-size: cover;
+}
+#add_new .cols .form-control {
+  height: 53px;
+}
+#add_new button {
+  margin-top: 10px;
+  margin-left: 5px;
 }
 .sb-right {
   overflow-y: hidden !important;
