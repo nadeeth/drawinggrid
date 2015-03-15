@@ -17,7 +17,8 @@ var app = app || {};
 			rows: 4,
 			cols: 3,
 			img: '',
-			color: '#FF0000'
+			color: '#FF0000',
+            position: 'center center'
 		}
 	});
 })();

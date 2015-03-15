@@ -15,7 +15,15 @@ var app = app || {};
         // Bind to the relevant events at intialization 
         initialize: function () {
 			this.draw_grid();
-			$(this.el).backgroundDraggable({ bound: false });
+			$(this.el).backgroundDraggable({ 
+                bound: false,
+                done: function() {
+                    var backgroundPosition = $('#active-grid').css('background-position');
+                    var grid = JSON.parse(localStorage.getItem('current_grid'));
+                    grid.position = backgroundPosition;
+                    localStorage.setItem('current_grid', JSON.stringify(grid));
+                }
+            });
 			$(this.el).pinchZoom();
 			//Bind the pinch zoom, drag initilizations to here
         },
@@ -37,8 +45,8 @@ var app = app || {};
 			
 			$(this.el).find(".grid").html(grid_html).find("td").css("border","1px solid "+grid.get("color"));
 			$(this.el).css("background-image","url('"+grid.get('img')+"')");
-			$(this.el).css("background-position","center center");
-			$(this.el).css("background-size","cover");
+			$(this.el).css("background-position",grid.get("position"));
+			//$(this.el).css("background-size","cover");
 		}
     });
 })(jQuery);

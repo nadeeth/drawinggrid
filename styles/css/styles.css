@@ -13,6 +13,7 @@ and open the template in the editor.
   top: 70px;
   bottom: 30px;
   background-repeat: no-repeat;
+  /*background-image: url("../../img/sample.jpg") !important;*/
 }
 .grid {
   width: 100%;

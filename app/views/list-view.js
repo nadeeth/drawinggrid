@@ -64,7 +64,7 @@ var app = app || {};
 
             //TODO: remove later after the full list is enabled
             app.list.each(function(model) {
-                    model.destroy();
+                model.destroy();
             });
 
             app.list.create(grid);
@@ -73,13 +73,17 @@ var app = app || {};
         },
 		
         clearGridsList: function() {
-                app.list.each(function(model) {
-                        model.destroy();
-                });
+            app.list.each(function(model) {
+                model.destroy();
+            });
         },
 
         setCurrentGrid: function(grid) {
-                localStorage.setItem('current_grid', JSON.stringify(grid));
+            localStorage.setItem('current_grid', JSON.stringify(grid));
+        },
+        
+        getCurrentGrid: function() {
+                return JSON.parse(localStorage.getItem('current_grid'));
         },
         
         getPhotoFile: function() {
