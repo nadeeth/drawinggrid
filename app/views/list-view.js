@@ -79,7 +79,18 @@ var app = app || {};
         },
 
         setCurrentGrid: function(grid) {
-            localStorage.setItem('current_grid', JSON.stringify(grid));
+            var current_grid = localStorage.getItem('current_grid');
+            if (current_grid) {
+                current_grid = JSON.parse(current_grid);console.log(current_grid);
+                current_grid.rows = grid.rows,
+                current_grid.cols = grid.cols,
+                current_grid.img = grid.img,
+                current_grid.color = grid.color,
+                current_grid.order = grid.order
+                localStorage.setItem('current_grid', JSON.stringify(current_grid));
+            } else {
+                localStorage.setItem('current_grid', JSON.stringify(grid));
+            }
         },
         
         getCurrentGrid: function() {

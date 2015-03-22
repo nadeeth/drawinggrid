@@ -29,12 +29,12 @@ var app = app || {};
         },
 		
 		//Draw grid
-		draw_grid: function(grid) {
+		draw_grid: function() {//localStorage.removeItem('current_grid');
 			
 			var grid = localStorage.getItem('current_grid');
 			grid = grid ? new app.Grid(JSON.parse(grid)) : new app.Grid;
 			
-			var grid_html = "";			
+			var grid_html = "";
 			for (var i=0; i<grid.get("rows"); i++) {
 				grid_html += "<tr>";
 				for (var j=0; j<grid.get("cols"); j++) {
