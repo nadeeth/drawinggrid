@@ -17,6 +17,7 @@ var app = app || {};
 			rows: 4,
 			cols: 3,
 			img: '',
+            img_size: 'auto',
 			color: '#FF0000',
             position: 'center center'
 		}
