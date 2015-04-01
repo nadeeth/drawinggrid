@@ -36,6 +36,7 @@ var app = app || {};
 				picker_color = grid.get("color");
 			}
 			
+            //$("#color").mcpicker();
 			$('#color').minicolors({//Initialize the color picker
 				theme: 'bootstrap',
 				defaultValue: picker_color,
@@ -104,7 +105,7 @@ var app = app || {};
                     $("#image_preview").css("background-image", "url('"+uri+"')");
                 }, 
                 function(msg){
-                    alert(msg);
+                    //alert(msg);
                 }, 
                 { 
                     quality: 50, 
@@ -120,7 +121,7 @@ var app = app || {};
                     $("#image_preview").css("background-image", "url('"+uri+"')");
                 }, 
                 function(msg){
-                    alert(msg);
+                    //alert(msg);
                 }, 
                 { 
                     quality: 50, 

@@ -41,7 +41,7 @@
     width: 173px;
     height: 152px;
     background: white;
-    border: solid 1px #CCC;
+    border: solid 20px #CCC;
     box-shadow: 0 0 20px rgba(0, 0, 0, .2);
     z-index: 99999;
     -moz-box-sizing: content-box;

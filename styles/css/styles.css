@@ -80,7 +80,7 @@ and open the template in the editor.
 #add_new .cols {
   margin-top: 50px;
   width: 50%;
-  height: 200px;
+  height: 214px;
   float: left;
   padding: 5px;
 }
@@ -89,9 +89,28 @@ and open the template in the editor.
   height: 100%;
   background-color: #fff;
   background-size: cover;
+  border: 3px solid #fff;
 }
 #add_new .cols .form-control {
-  height: 53px;
+  height: 33px;
+  width: 92%;
+}
+#add_new .cols .form-group label {
+  color: #fff;
+}
+#add_new .cols .form-group #color {
+  width: 88%;
+}
+#add_new .button_wrap {
+  float: left;
+  height: 100px;
+  margin-top: 40px;
+  width: 100%;
+  text-align: center;
+}
+#add_new .button_wrap button {
+  width: 30%;
+  height: 75px;
 }
 #add_new button {
   margin-top: 10px;
