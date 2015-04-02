@@ -87,7 +87,7 @@ and open the template in the editor.
 #add_new .cols #image_preview {
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  background-color: #969696;
   background-size: cover;
   border: 3px solid #fff;
 }
@@ -111,6 +111,7 @@ and open the template in the editor.
 #add_new .button_wrap button {
   width: 30%;
   height: 75px;
+  border: 1px solid #fff;
 }
 #add_new button {
   margin-top: 10px;
