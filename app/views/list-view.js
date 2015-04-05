@@ -11,7 +11,8 @@ var app = app || {};
         events: {
             'click #save_grid':'saveGrid',
             'click #btn_photo_camera':'getPhotoCamera',
-            'click #btn_photo_file':'getPhotoFile'
+            'click #btn_photo_file':'getPhotoFile',
+            'click #clear_grid':'clearGrid'
         },
 
         // Bind to the relevant events at intialization 
@@ -34,7 +35,14 @@ var app = app || {};
                 $("#color_code").val(grid.get("color"));
                 $("#image_preview").css("background-image","url('"+grid.get('img')+"')");
 				picker_color = grid.get("color");
-			}
+			} else {
+                $("#rows").val('');
+                $("#cols").val('');
+                $("#img").val('');
+                $("#color_code").val('');
+                $("#image_preview").css("background-image","url('')");
+				picker_color = '';
+            }
 			
             //$("#color").mcpicker();
 			$('#color').minicolors({//Initialize the color picker
@@ -92,6 +100,15 @@ var app = app || {};
             } else {
                 localStorage.setItem('current_grid', JSON.stringify(grid));
             }
+        },
+        
+        clearGrid: function() {
+            var r = confirm("Are you sure? This will clear the current saved grid.");
+            if (r === true) {
+                localStorage.removeItem('current_grid');
+                new app.HomeView();
+                this.renderCurrentGrid();
+            }            
         },
         
         getCurrentGrid: function() {

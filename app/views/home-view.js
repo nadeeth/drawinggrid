@@ -24,7 +24,7 @@ var app = app || {};
                     localStorage.setItem('current_grid', JSON.stringify(grid));
                 }
             });
-			$(this.el).pinchZoom({
+			$(this.el).pinchzoom({
                 done: function() {
                     var backgroundSize = $('#active-grid').css('background-size');
                     var grid = JSON.parse(localStorage.getItem('current_grid'));
