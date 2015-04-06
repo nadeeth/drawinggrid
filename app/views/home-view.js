@@ -14,7 +14,13 @@ var app = app || {};
 
         // Bind to the relevant events at intialization 
         initialize: function () {
-			this.draw_grid();
+            
+            //Retrieve the saved current grid
+            var grid = localStorage.getItem('current_grid');
+			grid = grid ? new app.Grid(JSON.parse(grid)) : new app.Grid;            
+			this.draw_grid(grid);
+            
+            //Bind the pinch zoom, drag initilizations
 			$(this.el).backgroundDraggable({ 
                 bound: false,
                 done: function() {
@@ -30,16 +36,13 @@ var app = app || {};
                     var grid = JSON.parse(localStorage.getItem('current_grid'));
                     grid.img_size = backgroundSize;
                     localStorage.setItem('current_grid', JSON.stringify(grid));
-                }
+                },
+                width: grid.get("img_size")
             });
-			//Bind the pinch zoom, drag initilizations to here
         },
 		
 		//Draw grid
-		draw_grid: function() {//localStorage.removeItem('current_grid');
-			
-			var grid = localStorage.getItem('current_grid');
-			grid = grid ? new app.Grid(JSON.parse(grid)) : new app.Grid;
+		draw_grid: function(grid) {
 			
 			var grid_html = "";
 			for (var i=0; i<grid.get("rows"); i++) {
