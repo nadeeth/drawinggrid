@@ -33,45 +33,68 @@ and open the template in the editor.
 }
 
 .grid-navbar {
+    
     margin-bottom: 0px !important;
     min-height: 10px !important;
     height: 70px !important;
     vertical-align: central !important;
     background-color: #000;
     color: #FFFFFF;
+    
+    .menu-left-wrap {
+        
+        width: 20%;
+        float: left;
+        
+        .menu-link-left {
+
+            font-size: 55px;
+            padding: 15px;
+            width: 65px;
+            float: left;
+
+            .icon-bar {
+                display: block;
+                height: 5px;
+                margin: 5px 0 0;
+                width: 100%;
+                background-color: #FFFFFF;
+            }
+        }
+    }
+    
+    .menu-middle-wrap {
+        
+        text-align: center !important;
+        width: 60%;
+        float: left;
+        
+        h6 {
+            font-size: 20px;
+            margin-top: 24px;
+        }
+    }
+    
+    .menu-right-wrap {
+        
+        width: 20%;
+        float: left;
+        
+        .menu-link-right {
+            background-image: url("../../img/filter.png");
+            background-position: center center;
+            background-repeat: no-repeat;
+            font-size: 55px;
+            height: 40px;
+            float: right;
+            width: 60px;
+            padding: 30px;
+        }
+    }
 }
 
-.menu-link-left {
-    font-size: 55px;
-    padding: 15px;
-    width: 65px;
-}
-.menu-link-right {
-    background-image: url("../../img/filter.png");
-    background-position: center center;
-    background-repeat: no-repeat;
-    font-size: 55px;
-    height: 40px;
-    position: absolute;
-    right: 15px;
-    top: 12px;
-    width: 40px;
-}
-.icon-bar {
-    display: block;
-    height: 5px;
-    margin: 5px 0 0;
-    width: 100%;
-    background-color: #FFFFFF;
-}
-.menu-header {
-    margin-left: 45%;
-    margin-right: 45%;
-    position: absolute;
-    text-align: center !important;
-    top: 5px;
-    width: 10%;
-}
+
+
 
 //List section
 #list-section {
