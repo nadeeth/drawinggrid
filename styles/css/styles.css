@@ -13,18 +13,22 @@ and open the template in the editor.
   top: 70px;
   bottom: 30px;
   background-repeat: no-repeat;
-  /*background-image: url("../../img/sample.jpg") !important;*/
+  overflow: hidden;
 }
-.grid {
+#active-grid #active-grid-img {
+  position: absolute;
+}
+#active-grid .grid {
   width: 100%;
   height: 100%;
   border-collapse: collapse;
   pointer-events: none;
+  position: absolute;
 }
-.grid td {
+#active-grid .grid td {
   border: 1px solid red;
 }
-.grid th td {
+#active-grid .grid th td {
   padding: 0;
 }
 .grid-navbar {

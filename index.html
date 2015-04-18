@@ -7,12 +7,13 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="styles/index.css" />
         <!-- Slidebars CSS -->
-		<link rel="stylesheet" href="lib/slidebars/slidebars.min.css" />
+	<link rel="stylesheet" href="lib/slidebars/slidebars.min.css" />
         <link rel="stylesheet" type="text/css" href="styles/css/styles.css" />
         <!-- Bootstrap -->
         <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
-		<!-- jQuery minicolors -->
-		<link rel="stylesheet" href="lib/jquery-minicolors/jquery.minicolors.css">
+	<!-- jQuery minicolors -->
+	<link rel="stylesheet" href="lib/jquery-minicolors/jquery.minicolors.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <title>Drawing Grid</title>
     </head>
     <body>
@@ -35,6 +36,8 @@
                 </div>
             </div>
             <div id="active-grid">
+                <img id="active-grid-img" src="img/sample.jpg"/>
+                <!--<img id="active-grid-img" src="img/sample.jpg"/>-->
                 <table class="grid"></table>
             </div>
             <div class="footer">
@@ -90,6 +93,9 @@
             <button type="button" class="btn btn-primary sb-toggle-right right-back-button">
                 <span class="glyphicon glyphicon-arrow-right"></span> Close
             </button>
+            
+            <br /><br /><br /><br /><br /><br /><br /><br /><br />
+            <button type="button" class="btn" id="filter_grayscale">Grayscale</button>
         </div>
 		
         <!--
@@ -114,8 +120,12 @@
         <script src="lib/backbone.localStorage.js"></script>
         <script src="lib/slidebars/slidebars.min.js"></script>
         <script src="lib/draggable_background.js"></script>
+        
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        
         <script src="lib/pinch-zoom.js"></script>
         <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+        <script src="lib/vintage.js"></script>
         <script src="lib/jquery-minicolors/jquery.minicolors.js"></script>
         <script src="lib/mcpicker.js"></script>
 		
@@ -125,6 +135,28 @@
         <script src="app/views/home-view.js"></script>
         <script src="app/views/list-view.js"></script>
         <script src="app/app.js"></script>
+        
+        <script>
+            (function($) {
+                $(function() {
+                    'use strict';
+                    $('#filter_grayscale').click(function(){
+
+                        var img = document.getElementById('active-grid-img');
+                        var options = {
+                            onError: function() {
+                                alert('ERROR');
+                            }
+                        };
+                        var effect = {
+                            vignette: 0.6,
+                            sepia: true
+                        };
+                        new VintageJS(img, options, effect);
+                        });
+                });
+            })(jQuery);
+        </script>
 	
     </body>
 </html>

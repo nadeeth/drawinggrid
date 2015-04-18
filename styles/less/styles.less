@@ -14,20 +14,25 @@ and open the template in the editor.
     top: 70px;
     bottom: 30px;
     background-repeat:no-repeat;
-    /*background-image: url("../../img/sample.jpg") !important;*/
-}
-
-.grid {
-    width: 100%;
-    height: 100%;
-    border-collapse: collapse;
-    pointer-events: none;
-    td {
-        border: 1px solid red;
+    overflow: hidden;
+    
+    #active-grid-img {
+        position: absolute;
     }
-    th {
+    
+    .grid {
+        width: 100%;
+        height: 100%;
+        border-collapse: collapse;
+        pointer-events: none;
+        position: absolute;
         td {
-            padding: 0;
+            border: 1px solid red;
+        }
+        th {
+            td {
+                padding: 0;
+            }
         }
     }
 }
