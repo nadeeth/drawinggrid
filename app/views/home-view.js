@@ -21,11 +21,13 @@ var app = app || {};
 			this.draw_grid(grid);
             
             //Bind the pinch zoom, drag initilizations
-            $(this.el).find("img").draggable({
-                stop: function( event, ui ) {
+            $(this.el).find("img").pep({
+                shouldEase: false,
+                useCSSTranslation: false,
+                stop: function() {
                     var grid = JSON.parse(localStorage.getItem('current_grid'));
-                    grid.position_top = ui.position.top;
-                    grid.position_left = ui.position.left;
+                    grid.position_top = $('#active-grid-img').css('top');
+                    grid.position_left = $('#active-grid-img').css('left');
                     localStorage.setItem('current_grid', JSON.stringify(grid));
                 }
             });
@@ -55,9 +57,9 @@ var app = app || {};
 			
 			$(this.el).find(".grid").html(grid_html).find("td").css("border","1px solid "+grid.get("color"));
             
-			//$(this.el).find("img").attr("src",grid.get('img'));
-			$(this.el).find("img").css("top",grid.get("position_top"));
-            $(this.el).find("img").css("left",grid.get("position_left"));
+			$(this.el).find("img").attr("src",grid.get('img'));
+			$(this.el).find("img").css("left",grid.get("position_left"));
+            $(this.el).find("img").css("top",grid.get("position_top"));
 			//$(this.el).css("background-size",grid.get("img_size"));
 		}
     });
