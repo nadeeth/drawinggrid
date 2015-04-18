@@ -17,7 +17,7 @@ var app = app || {};
 			rows: 4,
 			cols: 3,
 			img: '',
-            img_size: 'auto',
+            img_width: 'auto',
 			color: '#FF0000',
             position_top: 0,
             position_left: 0

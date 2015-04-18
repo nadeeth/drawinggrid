@@ -24,6 +24,7 @@ var app = app || {};
             $(this.el).find("img").pep({
                 shouldEase: false,
                 useCSSTranslation: false,
+                debug: true,
                 stop: function() {
                     var grid = JSON.parse(localStorage.getItem('current_grid'));
                     grid.position_top = $('#active-grid-img').css('top');
@@ -32,14 +33,14 @@ var app = app || {};
                 }
             });
 
-			$(this.el).pinchzoom({
+			$(this.el).find("img").pinchzoom({
                 done: function() {
-                    var backgroundSize = $('#active-grid').css('background-size');
+                    var img_width = $('#active-grid-img').css('width');
                     var grid = JSON.parse(localStorage.getItem('current_grid'));
-                    grid.img_size = backgroundSize;
+                    grid.img_width = img_width;
                     localStorage.setItem('current_grid', JSON.stringify(grid));
                 },
-                width: grid.get("img_size")
+                width: grid.get("img_width")
             });
         },
 		
@@ -57,10 +58,10 @@ var app = app || {};
 			
 			$(this.el).find(".grid").html(grid_html).find("td").css("border","1px solid "+grid.get("color"));
             
-			$(this.el).find("img").attr("src",grid.get('img'));
+//			$(this.el).find("img").attr("src",grid.get('img'));
 			$(this.el).find("img").css("left",grid.get("position_left"));
             $(this.el).find("img").css("top",grid.get("position_top"));
-			//$(this.el).css("background-size",grid.get("img_size"));
+			$(this.el).find("img").css("width",grid.get("img_width"));
 		}
     });
 })(jQuery);
