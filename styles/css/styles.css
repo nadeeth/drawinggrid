@@ -17,6 +17,11 @@ and open the template in the editor.
 }
 #active-grid #active-grid-img {
   position: absolute;
+  perspective: 1000px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  -webkit-user-select: none;
 }
 #active-grid .grid {
   width: 100%;
