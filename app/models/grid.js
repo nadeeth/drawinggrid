@@ -19,7 +19,8 @@ var app = app || {};
 			img: '',
             img_size: 'auto',
 			color: '#FF0000',
-            position: 'center center'
+            position_top: 0,
+            position_left: 0
 		}
 	});
 })();
