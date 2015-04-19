@@ -58,10 +58,12 @@ var app = app || {};
 			
 			$(this.el).find(".grid").html(grid_html).find("td").css("border","1px solid "+grid.get("color"));
             
-			$(this.el).find("img").attr("src",grid.get('img'));
+            //$(this.el).find("img").attr("src","img/sample.jpg");
+            $(this.el).find("img").attr("src",grid.get('img'));
 			$(this.el).find("img").css("left",grid.get("position_left"));
             $(this.el).find("img").css("top",grid.get("position_top"));
 			$(this.el).find("img").css("width",grid.get("img_width")+" !important");
+            $(this.el).find("img").addClass(grid.get("filter"));
             //$(this.el).find("img").css("height",'auto');
 		}
     });

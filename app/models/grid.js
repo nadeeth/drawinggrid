@@ -20,7 +20,8 @@ var app = app || {};
             img_width: 'auto',
 			color: '#FF0000',
             position_top: 0,
-            position_left: 0
+            position_left: 0,
+            filter: ''
 		}
 	});
 })();

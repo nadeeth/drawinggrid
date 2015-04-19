@@ -13,6 +13,7 @@ var ESC_KEY = 27;
         $.slidebars();
 		new app.HomeView();
 		new app.ListView();
+        new app.FiltersView();
         
         //Control screen sleep
 //        var onDeviceReady = function(){

@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div id="active-grid">
-                <img id="active-grid-img" src="img/sample.jpg"/>
+                <img id="active-grid-img" />
                 <table class="grid"></table>
             </div>
             <div class="footer">
@@ -92,8 +92,28 @@
                 <span class="glyphicon glyphicon-arrow-right"></span> Close
             </button>
             
-            <br /><br /><br /><br /><br /><br /><br /><br /><br />
-            <button type="button" class="btn" id="filter_grayscale">Grayscale</button>
+            <br /><br /><br /><br /><br />
+            <button type="button" class="btn dg-filter" data-dg-filter="">Remove Filters</button>
+            <br /><br />
+            <button type="button" class="btn dg-filter" data-dg-filter="filter-greyscale">Gray Scale</button>
+            <br /><br />
+            <button type="button" class="btn dg-filter" data-dg-filter="filter-blur">Blur</button>
+            <br /><br />
+            <button type="button" class="btn dg-filter" data-dg-filter="filter-edges">Edges</button>
+            <br /><br />
+            <button type="button" class="btn dg-filter" data-dg-filter="filter-emboss">Emboss</button>
+            <br /><br />
+            <button type="button" class="btn dg-filter" data-dg-filter="filter-mosaic">Mosaic</button>
+            <br /><br />
+            <button type="button" class="btn dg-filter" data-dg-filter="filter-noise">Noise</button>
+            <br /><br />
+            <button type="button" class="btn dg-filter" data-dg-filter="filter-posterize">Posterize</button>
+            <br /><br />
+            <button type="button" class="btn dg-filter" data-dg-filter="filter-tint">Tint</button>
+            <br /><br />
+            <button type="button" class="btn dg-filter" data-dg-filter="filter-sharpen">Sharpen</button>
+            <br /><br />
+            <button type="button" class="btn dg-filter" data-dg-filter="filter-sepia">Sepia</button>
         </div>
 		
         <!--
@@ -120,7 +140,11 @@
         <script src="lib/jquery.pep.js"></script>        
         <script src="lib/pinch-zoom.js"></script>
         <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+        
+        <script src="lib/paintbrushJS/common.js"></script>
+        <script src="lib/paintbrushJS/paintbrush.js"></script>
         <script src="lib/vintage.js"></script>
+        
         <script src="lib/jquery-minicolors/jquery.minicolors.js"></script>
         <script src="lib/mcpicker.js"></script>
 		
@@ -129,29 +153,7 @@
         <script src="app/collections/list.js"></script>
         <script src="app/views/home-view.js"></script>
         <script src="app/views/list-view.js"></script>
+        <script src="app/views/filters-view.js"></script>
         <script src="app/app.js"></script>
-        
-        <script>
-            (function($) {
-                $(function() {
-                    'use strict';
-                    $('#filter_grayscale').click(function(){
-
-                        var img = document.getElementById('active-grid-img');
-                        var options = {
-                            onError: function() {
-                                alert('ERROR');
-                            }
-                        };
-                        var effect = {
-                            vignette: 0.6,
-                            sepia: true
-                        };
-                        new VintageJS(img, options, effect);
-                        });
-                });
-            })(jQuery);
-        </script>
-	
     </body>
 </html>
