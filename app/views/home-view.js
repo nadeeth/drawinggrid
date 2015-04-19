@@ -63,8 +63,30 @@ var app = app || {};
 			$(this.el).find("img").css("left",grid.get("position_left"));
             $(this.el).find("img").css("top",grid.get("position_top"));
 			$(this.el).find("img").css("width",grid.get("img_width")+" !important");
-            $(this.el).find("img").addClass(grid.get("filter"));
+            this.apply_filter(grid.get("filter"));
             //$(this.el).find("img").css("height",'auto');
-		}
+		},
+        
+        //Apply fiter
+        apply_filter: function(filter) {
+            
+            //VintageJS
+            if (filter === 'filter-sepia') {
+                var img = document.getElementById('active-grid-img');
+                var options = {
+                    onError: function() {
+                        alert('ERROR');
+                    }
+                };
+                var effect = {
+                    vignette: 0.6,
+                    sepia: true
+                };
+                new VintageJS(img, options, effect);
+            }
+            
+            //PaintbrushJS
+            //$(this.el).find("img").addClass(filter);
+        }
     });
 })(jQuery);

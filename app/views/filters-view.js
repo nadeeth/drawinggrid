@@ -19,7 +19,6 @@ var app = app || {};
                 grid.filter = $(this).data('dg-filter');
                 localStorage.setItem('current_grid', JSON.stringify(grid));
                 new app.HomeView();
-                location.reload();
             });
         },
 
