@@ -61,6 +61,7 @@ var app = app || {};
                 rows: $("#rows").val().trim(),
                 cols: $("#cols").val().trim(),
                 img: $("#img").val().trim(),
+                //img: 'img/sample.jpg',
                 color: $("#color_code").val().trim(),
                 order: app.list.nextOrder()
             };

@@ -55,38 +55,14 @@ var app = app || {};
 				}
 				grid_html += "</tr>";
 			}
-			
+
 			$(this.el).find(".grid").html(grid_html).find("td").css("border","1px solid "+grid.get("color"));
-            
-            //$(this.el).find("img").attr("src","img/sample.jpg");
-            $(this.el).find("img").attr("src",grid.get('img'));
+            $(this.el).find("img").attr("src", grid.get('filter') ? grid.get('filter') : grid.get('img'));
 			$(this.el).find("img").css("left",grid.get("position_left"));
             $(this.el).find("img").css("top",grid.get("position_top"));
 			$(this.el).find("img").css("width",grid.get("img_width")+" !important");
-            this.apply_filter(grid.get("filter"));
             //$(this.el).find("img").css("height",'auto');
-		},
+		}
         
-        //Apply fiter
-        apply_filter: function(filter) {
-            
-            //VintageJS
-            if (filter === 'filter-sepia') {
-                var img = document.getElementById('active-grid-img');
-                var options = {
-                    onError: function() {
-                        alert('ERROR');
-                    }
-                };
-                var effect = {
-                    vignette: 0.6,
-                    sepia: true
-                };
-                new VintageJS(img, options, effect);
-            }
-            
-            //PaintbrushJS
-            //$(this.el).find("img").addClass(filter);
-        }
     });
 })(jQuery);
