@@ -63,6 +63,7 @@ var app = app || {};
                 img: $("#img").val().trim(),
                 //img: 'img/sample.jpg',
                 color: $("#color_code").val().trim(),
+                filter: '',
                 order: app.list.nextOrder()
             };
         },
@@ -91,12 +92,13 @@ var app = app || {};
         setCurrentGrid: function(grid) {
             var current_grid = localStorage.getItem('current_grid');
             if (current_grid) {
-                current_grid = JSON.parse(current_grid);console.log(current_grid);
-                current_grid.rows = grid.rows,
-                current_grid.cols = grid.cols,
-                current_grid.img = grid.img,
-                current_grid.color = grid.color,
-                current_grid.order = grid.order
+                current_grid = JSON.parse(current_grid);
+                current_grid.rows = grid.rows;
+                current_grid.cols = grid.cols;
+                current_grid.img = grid.img;
+                current_grid.color = grid.color;
+                current_grid.order = grid.order;
+                current_grid.filter = '';
                 localStorage.setItem('current_grid', JSON.stringify(current_grid));
             } else {
                 localStorage.setItem('current_grid', JSON.stringify(grid));

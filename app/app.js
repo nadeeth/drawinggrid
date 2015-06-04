@@ -7,20 +7,13 @@ var ESC_KEY = 27;
 //
 //    //new app.AppView();
 //});
-(function($) {
+var app_init = function() {
     $(function() {
 		'use strict';
         $.slidebars();
 		new app.HomeView();
 		new app.ListView();
         new app.FiltersView();
-        
-        //Control screen sleep
-//        var onDeviceReady = function(){
-//            alert('hi');
-//            alert(keepscreenon);
-//            keepscreenon.enable();
-//        };
-//        document.addEventListener('deviceready', onDeviceReady, false);
+        keepscreenon.enable();//Keep Screen Awake.
     });
-})(jQuery);
+};

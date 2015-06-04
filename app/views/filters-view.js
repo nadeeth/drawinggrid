@@ -25,9 +25,29 @@ var app = app || {};
                             alert('Filter Error.');
                         },
                         onStop: function() {
+                            
+                            //this.save_filtered_image($('#active-grid-img').attr('src'));
                             var grid = JSON.parse(localStorage.getItem('current_grid'));
-                            grid.filter = $('#active-grid-img').attr('src');
+                            grid.filter = true;
                             localStorage.setItem('current_grid', JSON.stringify(grid));
+                            
+                            window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+
+                            function gotFS(fileSystem) {
+                                fileSystem.root.getFile("grid_filtered.txt", {create: true, exclusive: false}, gotFileEntry, fail);
+                            }
+
+                            function gotFileEntry(fileEntry) {
+                                fileEntry.createWriter(gotFileWriter, fail);
+                            }
+
+                            function gotFileWriter(writer) {
+                                writer.write($('#active-grid-img').attr('src'));
+                            }
+
+                            function fail(error) {
+                                alert('write-error - '+error.code);
+                            }
                         }
                     };
                     var effect = {
@@ -46,6 +66,11 @@ var app = app || {};
 
                 new app.HomeView();
             });
+        },
+        
+        save_filtered_image: function(img) {alert('cxhi');//TODO: refactor
+        
+            
         }
     });
 })(jQuery);
