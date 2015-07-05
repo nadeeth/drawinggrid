@@ -62,7 +62,7 @@ var app = app || {};
                     button.html(label);
                     new app.HomeView();
                 } else {
-                    button.html(label + " Loading...");
+                    button.html(label + ' : Loading, please wait...');
                     setTimeout(function(){//TODO: use a promise or something
                         new VintageJS(img, options, vintagePresets[button.data('dg-filter')]);
                     }, 

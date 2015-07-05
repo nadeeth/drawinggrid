@@ -177,6 +177,38 @@ and open the template in the editor.
 .sb-right {
     overflow-y: hidden !important;
     padding: 5px;
+    
+    .dg-filter {
+        width: 45%;
+        height: 100px;
+        float: left;
+        margin: 1%;
+        white-space: normal;
+        background-position: center;
+        background-size: cover;
+        color: #fff;
+        border: 1px solid #fff;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    }
+    .dg-filter:focus, .dg-filter:active, .dg-filter:hover {
+        color: #000;
+        text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+    }
+    .dg-filter[data-dg-filter=""] { 
+        background-image: url('../../img/filter-no.jpg');
+    }
+    .dg-filter[data-dg-filter="sepia"] {
+        background-image: url('../../img/filter-sepia.jpg');
+    }
+    .dg-filter[data-dg-filter="vintage"] {
+        background-image: url('../../img/filter-vintage.jpg');
+    }
+    .dg-filter[data-dg-filter="reddish"] {
+        background-image: url('../../img/filter-reddish.jpg');
+    }
+    .dg-filter[data-dg-filter="greenish"] {
+        background-image: url('../../img/filter-greenish.jpg');
+    }
 }
 
 .right-back-button {
