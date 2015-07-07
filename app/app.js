@@ -16,4 +16,5 @@ var app_init = function() {
         new app.FiltersView();
         keepscreenon.enable();//Keep Screen Awake.
     });
-};$.slidebars();
+};
+//$.slidebars();
