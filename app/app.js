@@ -17,4 +17,4 @@ var app_init = function() {
         keepscreenon.enable();//Keep Screen Awake.
     });
 };
-//$.slidebars();
+//$.slidebars();//Debug Mode

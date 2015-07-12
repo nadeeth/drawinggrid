@@ -12,6 +12,7 @@ var app = app || {};
             'click #save_grid':'saveGrid',
             'click #btn_photo_camera':'getPhotoCamera',
             'click #btn_photo_file':'getPhotoFile',
+            'click #btn_rotate_img':'rotateImg',
             'click #clear_grid':'clearGrid'
         },
 
@@ -34,6 +35,8 @@ var app = app || {};
                 $("#img").val(grid.get("img"));
                 $("#color_code").val(grid.get("color"));
                 $("#image_preview").css("background-image","url('"+grid.get('img')+"')");
+                $("#rotation").val(grid.get("rotation"));
+                this.rotatePreview(grid.get("rotation"));
 				picker_color = grid.get("color");
 			} else {
                 $("#rows").val('');
@@ -41,6 +44,7 @@ var app = app || {};
                 $("#img").val('');
                 $("#color_code").val('');
                 $("#image_preview").css("background-image","url('')");
+                $("#rotation").val('0');
 				picker_color = '';
             }
 			
@@ -63,7 +67,8 @@ var app = app || {};
                 img: $("#img").val().trim(),
                 //img: 'img/sample.jpg',
                 color: $("#color_code").val().trim(),
-                filter: '',
+                //filter: '',
+                rotation: $("#rotation").val().trim(),
                 order: app.list.nextOrder()
             };
         },
@@ -98,7 +103,8 @@ var app = app || {};
                 current_grid.img = grid.img;
                 current_grid.color = grid.color;
                 current_grid.order = grid.order;
-                current_grid.filter = '';
+                //current_grid.filter = '';
+                current_grid.rotation = grid.rotation;
                 localStorage.setItem('current_grid', JSON.stringify(current_grid));
             } else {
                 localStorage.setItem('current_grid', JSON.stringify(grid));
@@ -148,6 +154,33 @@ var app = app || {};
                     destinationType: Camera.DestinationType.FILE_URI 
                 }
             );
+        },
+        
+        rotateImg: function() {
+            
+            var now = parseInt($('#rotation').val());
+            if (isNaN(now)) {
+                now = 90;
+            } else if (now === 270) {
+                now = 0;
+            } else {
+                now = now + 90;
+            }
+            
+            $('#rotation').val(now);
+            
+            this.rotatePreview(now);
+        },
+        
+        rotatePreview: function(rotation) {
+            
+            $("#image_preview").css({  
+                '-webkit-transform': 'rotate(' + rotation + 'deg)',  //Safari 3.1+, Chrome  
+                '-moz-transform': 'rotate(' + rotation + 'deg)',     //Firefox 3.5-15  
+                '-ms-transform': 'rotate(' + rotation + 'deg)',      //IE9+  
+                '-o-transform': 'rotate(' + rotation + 'deg)',       //Opera 10.5-12.00  
+                'transform': 'rotate(' + rotation + 'deg)'          //Firefox 16+, Opera 12.50+
+            });
         }
 
         // Add all items in the list

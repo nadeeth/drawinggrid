@@ -72,6 +72,14 @@ var app = app || {};
             $(this.el).find("img").css("top",grid.get("position_top"));
 			$(this.el).find("img").css("width",grid.get("img_width")+" !important");
             //$(this.el).find("img").css("height",'auto');
+            
+            $(this.el).find("img").css({  
+                '-webkit-transform': 'rotate(' + grid.get("rotation") + 'deg)',  //Safari 3.1+, Chrome  
+                '-moz-transform': 'rotate(' + grid.get("rotation") + 'deg)',     //Firefox 3.5-15  
+                '-ms-transform': 'rotate(' + grid.get("rotation") + 'deg)',      //IE9+  
+                '-o-transform': 'rotate(' + grid.get("rotation") + 'deg)',       //Opera 10.5-12.00  
+                'transform': 'rotate(' + grid.get("rotation") + 'deg)'          //Firefox 16+, Opera 12.50+
+            });
 		},
         
         get_filtered_image: function() {

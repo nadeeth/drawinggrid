@@ -21,6 +21,7 @@ var app = app || {};
 			color: '#FF0000',
             position_top: 0,
             position_left: 0,
+            rotation: 0,
             filter: ''
 		}
 	});

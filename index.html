@@ -60,6 +60,7 @@
                             <label for="color">Grid Color </label><input type="text" readonly="readonly" value="" class="form-control" id="color" placeholder="Grid Color">
                         </div>
                         <input type="hidden" id="img"/>
+                        <input type="hidden" id="rotation"/>
                         <input type="hidden" id="color_code"/>
                     </form>
                 </div>
@@ -82,6 +83,10 @@
                     <button class="btn btn-primary btn-lg" id="clear_grid">
                         Clear
                         <span class="glyphicon glyphicon-remove-sign"></span>
+                    </button>
+                    <button class="btn btn-primary btn-lg" id="btn_rotate_img">
+                        Rotate
+                        <span class="glyphicon glyphicon-repeat"></span>
                     </button>
                 </div>
             </div>
@@ -139,5 +144,7 @@
         <script src="app/views/list-view.js"></script>
         <script src="app/views/filters-view.js"></script>
         <script src="app/app.js"></script>
+        
+        <!-- Debug Mode -->
     </body>
 </html>
