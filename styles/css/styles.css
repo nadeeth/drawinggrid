@@ -104,15 +104,19 @@ and open the template in the editor.
   padding: 5px;
 }
 #add_new .cols #image_preview {
-  width: 100%;
-  height: 100%;
+  width: 200px;
+  height: 200px;
+  margin-top: 22px;
+  margin-left: auto;
+  margin-right: auto;
   background-color: #969696;
   background-size: cover;
   border: 3px solid #fff;
+  border-radius: 50%;
 }
 #add_new .cols .form-control {
   height: 33px;
-  width: 92%;
+  width: 100%;
 }
 #add_new .cols .form-group label {
   color: #fff;
@@ -123,12 +127,11 @@ and open the template in the editor.
 #add_new .button_wrap {
   float: left;
   height: 100px;
-  margin-top: 40px;
   width: 100%;
   text-align: center;
 }
 #add_new .button_wrap button {
-  width: 22%;
+  width: 90%;
   height: 75px;
   border: 1px solid #fff;
   font-size: 16px;
