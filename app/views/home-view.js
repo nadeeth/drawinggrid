@@ -60,6 +60,7 @@ var app = app || {};
             
 			$(this.el).find(".grid").html(grid_html).find("td").css("border","1px solid "+grid.get("color"));
             this.set_loading_graphic();
+            $(this.el).find("img").on("load",this.clear_loading_graphic);
                         
             if (!grid.get('filter')) {
                 $(this.el).find("img").attr("src", grid.get('img'));
@@ -80,6 +81,7 @@ var app = app || {};
                 '-o-transform': 'rotate(' + grid.get("rotation") + 'deg)',       //Opera 10.5-12.00  
                 'transform': 'rotate(' + grid.get("rotation") + 'deg)'          //Firefox 16+, Opera 12.50+
             });
+            
 		},
         
         get_filtered_image: function() {
@@ -111,6 +113,10 @@ var app = app || {};
             function fail(error) {
                 alert(error.code);
             }
+        },
+        
+        clear_loading_graphic : function() {
+            $('#active-grid').css("background-image", "none");
         },
         
         set_loading_graphic : function() {
