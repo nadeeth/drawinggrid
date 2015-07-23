@@ -87,103 +87,129 @@ and open the template in the editor.
 #list-section {
   overflow-y: hidden !important;
   width: 100% !important;
-  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
 }
-.left-back-button {
+#list-section .left-back-button {
   float: right;
   margin-bottom: 5px !important;
   position: absolute;
   right: 10px;
-  border: 1px solid #fff !important;
+  border: 0;
+  border-bottom: 1px solid #818a92 !important;
+  background-color: transparent;
+  border-radius: 0;
 }
-#add_new .cols {
+#list-section #add_new .cols {
   margin-top: 50px;
   width: 50%;
   height: 214px;
   float: left;
   padding: 5px;
 }
-#add_new .cols #image_preview {
+#list-section #add_new .cols #image_preview {
   width: 200px;
   height: 200px;
-  margin-top: 22px;
-  margin-left: auto;
-  margin-right: auto;
   background-color: #969696;
   background-size: cover;
-  border: 3px solid #fff;
+  border: 2px solid #818a92;
   border-radius: 50%;
+  margin: 0 auto 22px;
 }
-#add_new .cols .form-control {
+#list-section #add_new .cols .form-control {
   height: 33px;
   width: 100%;
 }
-#add_new .cols .form-group label {
+#list-section #add_new .cols .form-group label {
   color: #fff;
 }
-#add_new .cols .form-group #color {
-  width: 88%;
+#list-section #add_new .cols .form-group input {
+  background-color: transparent;
+  color: #fff;
+  border-radius: 0;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #818a92;
 }
-#add_new .button_wrap {
+#list-section #add_new .cols .form-group #color {
+  border-bottom: 0;
+  /*width: 88%;*/
+}
+#list-section #add_new .button_wrap {
   float: left;
   height: 100px;
   width: 100%;
   text-align: center;
 }
-#add_new .button_wrap button {
-  width: 90%;
-  height: 75px;
-  border: 1px solid #fff;
-  font-size: 16px;
+#list-section #add_new .button_wrap button {
+  width: 85%;
+  height: 88px;
+  border-bottom: 1px solid #5e666b;
+  border-top: 1px solid #818a92;
+  border-left: none;
+  border-right: none;
+  font-size: 20px;
+  border-radius: 0;
+  text-align: left;
+  padding-left: 30px;
+  padding-top: 15px;
+  background-color: transparent;
 }
-#add_new button {
-  margin-top: 10px;
-  margin-left: 5px;
+#list-section #add_new .button_wrap button span {
+  margin-left: 0;
+  margin-right: 8px;
 }
-.sb-right {
+#filters-section {
   overflow-y: hidden !important;
   padding: 5px;
+  background-color: rgba(0, 0, 0, 0.9);
 }
-.sb-right .dg-filter {
-  width: 45%;
-  height: 100px;
-  float: left;
-  margin: 1%;
-  white-space: normal;
-  background-position: center;
-  background-size: cover;
-  color: #fff;
-  border: 1px solid #fff;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
-.sb-right .dg-filter:focus,
-.sb-right .dg-filter:active,
-.sb-right .dg-filter:hover {
-  color: #000;
-  text-shadow: -1px 0 #ffffff, 0 1px #ffffff, 1px 0 #ffffff, 0 -1px #ffffff;
-}
-.sb-right .dg-filter[data-dg-filter=""] {
-  background-image: url('../../img/filter-no.jpg');
-}
-.sb-right .dg-filter[data-dg-filter="sepia"] {
-  background-image: url('../../img/filter-sepia.jpg');
-}
-.sb-right .dg-filter[data-dg-filter="vintage"] {
-  background-image: url('../../img/filter-vintage.jpg');
-}
-.sb-right .dg-filter[data-dg-filter="reddish"] {
-  background-image: url('../../img/filter-reddish.jpg');
-}
-.sb-right .dg-filter[data-dg-filter="greenish"] {
-  background-image: url('../../img/filter-greenish.jpg');
-}
-.right-back-button {
+#filters-section .right-back-button {
   float: left;
   margin-bottom: 5px !important;
   position: absolute;
   left: 10px;
-  border: 1px solid #fff !important;
   top: 10px;
+  border: 0;
+  border-bottom: 1px solid #818a92 !important;
+  background-color: transparent;
+  border-radius: 0;
+}
+#filters-section .dg-filter {
+  width: 50%;
+  height: 100px;
+  float: left;
+  white-space: normal;
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+  border-bottom: 1px solid #818a92;
+  border-right: 1px solid #818a92;
+  border-left: 1px solid #5e666b;
+  border-top: 1px solid #5e666b;
+  border-radius: 0;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+#filters-section .dg-filter:focus,
+#filters-section .dg-filter:active,
+#filters-section .dg-filter:hover {
+  color: #000;
+  text-shadow: -1px 0 #ffffff, 0 1px #ffffff, 1px 0 #ffffff, 0 -1px #ffffff;
+}
+#filters-section .dg-filter[data-dg-filter=""] {
+  background-image: url('../../img/filter-no.jpg');
+}
+#filters-section .dg-filter[data-dg-filter="sepia"] {
+  background-image: url('../../img/filter-sepia.jpg');
+}
+#filters-section .dg-filter[data-dg-filter="vintage"] {
+  background-image: url('../../img/filter-vintage.jpg');
+}
+#filters-section .dg-filter[data-dg-filter="reddish"] {
+  background-image: url('../../img/filter-reddish.jpg');
+}
+#filters-section .dg-filter[data-dg-filter="greenish"] {
+  background-image: url('../../img/filter-greenish.jpg');
 }
 .footer {
   background-color: #000;

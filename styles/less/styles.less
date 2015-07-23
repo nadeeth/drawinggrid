@@ -110,87 +110,125 @@ and open the template in the editor.
 #list-section {
     overflow-y: hidden !important;
     width: 100% !important;
-    padding: 10px;
-}
-.left-back-button {
-    float: right;
-    margin-bottom: 5px !important;
-    position: absolute;
-    right: 10px;
-    border: 1px solid #fff !important;
-}
-#add_new {
-	
-    .cols {
-        margin-top: 50px;
-        width: 50%;
-        height: 214px;
-        float: left;
-        padding: 5px;
-        
-        #image_preview {
-            width: 200px;
-            height: 200px;
-            margin-top: 22px;
-            margin-left: auto;
-            margin-right: auto;
-            background-color: #969696;
-            background-size: cover;
-            border: 3px solid #fff;
-            border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.8);
+    
+    .left-back-button {
+        float: right;
+        margin-bottom: 5px !important;
+        position: absolute;
+        right: 10px;
+        border: 0;
+        border-bottom: 1px solid #818a92 !important;
+        background-color: transparent;
+        border-radius: 0;
+    }
+    
+    #add_new {
+
+        .cols {
+            margin-top: 50px;
+            width: 50%;
+            height: 214px;
+            float: left;
+            padding: 5px;
+
+            #image_preview {
+                width: 200px;
+                height: 200px;
+                background-color: #969696;
+                background-size: cover;
+                border: 2px solid #818a92;
+                border-radius: 50%;
+                margin: 0 auto 22px;
+            }
+
+            .form-control {
+                height: 33px;
+                width: 100%;
+            }
+
+            .form-group {
+                label {
+                    color: #fff;
+                }
+                input {
+                    background-color: transparent;
+                    color: #fff;
+                    border-radius: 0;
+                    border-top: none;
+                    border-left: none;
+                    border-right: none;
+                    border-bottom: 1px solid #818a92;
+                }
+                #color {
+                    border-bottom: 0;
+                    /*width: 88%;*/
+                }
+            }
         }
-        
-        .form-control {
-            height: 33px;
+
+        .button_wrap {
+            //border: 1px solid white; 
+            float: left;
+            height: 100px;
             width: 100%;
-        }
-        
-        .form-group {
-            label {
-                color: #fff;
+            text-align: center;
+
+            button {
+                width: 85%;
+                height: 88px;
+                border-bottom: 1px solid #5e666b;
+                border-top: 1px solid #818a92;
+                border-left: none;
+                border-right: none;
+                font-size: 20px;
+                border-radius: 0;
+                text-align: left;
+                padding-left: 30px;
+                padding-top: 15px;
+                background-color: transparent;
+                
+                span {
+                    margin-left: 0;
+                    margin-right: 8px;
+                }
             }
-            #color {
-                width: 88%;
-            }
         }
-    }
-    
-    .button_wrap {
-        //border: 1px solid white; 
-        float: left;
-        height: 100px;
-        width: 100%;
-        text-align: center;
-        
-        button {
-            width: 90%;
-            height: 75px;
-            border: 1px solid #fff;
-            font-size: 16px;
-        }
-    }
-    
-    button {
-        margin-top: 10px;
-        margin-left: 5px;
     }
 }
 
+
 //Filters section
-.sb-right {
+#filters-section {
     overflow-y: hidden !important;
     padding: 5px;
+    background-color: rgba(0, 0, 0, 0.9);
     
+    .right-back-button {
+        float: left;
+        margin-bottom: 5px !important;
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        border: 0;
+        border-bottom: 1px solid #818a92 !important;
+        background-color: transparent;
+        border-radius: 0;
+    }
+
     .dg-filter {
-        width: 45%;
+        width: 50%;
         height: 100px;
         float: left;
-        margin: 1%;
         white-space: normal;
         background-position: center;
         background-size: cover;
         color: #fff;
-        border: 1px solid #fff;
+        border-bottom: 1px solid #818a92;
+        border-right: 1px solid #818a92;
+        border-left: 1px solid #5e666b;
+        border-top: 1px solid #5e666b;
+        border-radius: 0;
         text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     }
     .dg-filter:focus, .dg-filter:active, .dg-filter:hover {
@@ -212,15 +250,6 @@ and open the template in the editor.
     .dg-filter[data-dg-filter="greenish"] {
         background-image: url('../../img/filter-greenish.jpg');
     }
-}
-
-.right-back-button {
-    float: left;
-    margin-bottom: 5px !important;
-    position: absolute;
-    left: 10px;
-    border: 1px solid #fff !important;
-    top: 10px;
 }
 
 .footer {
