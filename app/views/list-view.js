@@ -77,13 +77,6 @@ var app = app || {};
         saveGrid: function (e) {
 
             var grid = this.getAttributes();
-
-            //TODO: remove later after the full list is enabled
-            app.list.each(function(model) {
-                model.destroy();
-            });
-
-            app.list.create(grid);
             this.setCurrentGrid(grid);
             new app.HomeView();
         },
@@ -96,14 +89,26 @@ var app = app || {};
 
         setCurrentGrid: function(grid) {
             var current_grid = localStorage.getItem('current_grid');
+            
+            //console.log(current_grid);
+            //console.log(grid);
+            
             if (current_grid) {
                 current_grid = JSON.parse(current_grid);
                 current_grid.rows = grid.rows;
                 current_grid.cols = grid.cols;
-                current_grid.img = grid.img;
                 current_grid.color = grid.color;
                 current_grid.order = grid.order;
-                //current_grid.filter = '';
+                
+                //Reset the filter, size and position if the image is new
+                if (current_grid.img !== grid.img) {
+                    current_grid.filter = false;
+                    current_grid.img_width = 'auto';
+                    current_grid.position_top = 0;
+                    current_grid.position_left = 0;
+                }
+                
+                current_grid.img = grid.img;                
                 current_grid.rotation = grid.rotation;
                 localStorage.setItem('current_grid', JSON.stringify(current_grid));
             } else {
@@ -117,6 +122,7 @@ var app = app || {};
                 localStorage.removeItem('current_grid');
                 new app.HomeView();
                 this.renderCurrentGrid();
+                $("#active-grid-img").attr("src","data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");//Reset Image to 1x1px transparent gif
             }            
         },
         
@@ -126,10 +132,7 @@ var app = app || {};
         
         getPhotoFile: function() {
             navigator.camera.getPicture(
-                function(uri){
-                    $("#img").val(uri);
-                    $("#image_preview").css("background-image", "url('"+uri+"')");
-                }, 
+                this.loadNewPhoto, 
                 function(msg){
                     //alert(msg);
                 }, 
@@ -142,10 +145,7 @@ var app = app || {};
         
         getPhotoCamera: function() {
             navigator.camera.getPicture(
-                function(uri){
-                    $("#img").val(uri);
-                    $("#image_preview").css("background-image", "url('"+uri+"')");
-                }, 
+                this.loadNewPhoto, 
                 function(msg){
                     //alert(msg);
                 }, 
@@ -154,6 +154,19 @@ var app = app || {};
                     destinationType: Camera.DestinationType.FILE_URI 
                 }
             );
+        },
+        
+        loadNewPhoto : function(uri){
+            $("#img").val(uri);
+            $("#image_preview").css({  
+                "background-image": "url('"+uri+"')",
+                '-webkit-transform': 'none',//Safari 3.1+, Chrome  
+                '-moz-transform': 'none',//Firefox 3.5-15  
+                '-ms-transform': 'none',//IE9+  
+                '-o-transform': 'none',//Opera 10.5-12.00  
+                'transform': 'none'//Firefox 16+, Opera 12.50+
+            });
+            $("#rotation").val(0);
         },
         
         rotateImg: function() {
@@ -182,12 +195,6 @@ var app = app || {};
                 'transform': 'rotate(' + rotation + 'deg)'          //Firefox 16+, Opera 12.50+
             });
         }
-
-        // Add all items in the list
-//        addAll: function () {
-//            this.$list.html('');
-//            app.list.each(this.addOne, this);
-//        }
 
     });
 })(jQuery);

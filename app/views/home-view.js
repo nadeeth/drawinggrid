@@ -48,7 +48,7 @@ var app = app || {};
 		
 		//Draw grid
 		draw_grid: function(grid) {
-			
+            
 			var grid_html = "";
 			for (var i=0; i<grid.get("rows"); i++) {
 				grid_html += "<tr>";
@@ -59,7 +59,7 @@ var app = app || {};
 			}
             
 			$(this.el).find(".grid").html(grid_html).find("td").css("border","1px solid "+grid.get("color"));
-            this.set_loading_graphic();
+            if (grid.get('img')) this.set_loading_graphic();
             $(this.el).find("img").on("load",this.clear_loading_graphic);
                         
             if (!grid.get('filter')) {
