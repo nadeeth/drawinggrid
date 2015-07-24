@@ -13,14 +13,14 @@ var app = app || {};
         },
 
         // Bind to the relevant events at intialization 
-        initialize: function () {
+        initialize: function (options) {
             
             //localStorage.removeItem('current_grid');//Debug
             
             //Retrieve the saved current grid
             var grid = localStorage.getItem('current_grid');
 			grid = grid ? new app.Grid(JSON.parse(grid)) : new app.Grid;            
-			this.draw_grid(grid);
+			this.draw_grid(grid, options);
             
             //Bind the pinch zoom, drag initilizations
             $(this.el).find("img").pep({
@@ -47,7 +47,7 @@ var app = app || {};
         },
 		
 		//Draw grid
-		draw_grid: function(grid) {
+		draw_grid: function(grid, options) {
             
 			var grid_html = "";
 			for (var i=0; i<grid.get("rows"); i++) {
@@ -59,7 +59,7 @@ var app = app || {};
 			}
             
 			$(this.el).find(".grid").html(grid_html).find("td").css("border","1px solid "+grid.get("color"));
-            if (grid.get('img')) this.set_loading_graphic();
+            if (grid.get('img') && options.show_loading_graphic) this.set_loading_graphic();
             $(this.el).find("img").on("load",this.clear_loading_graphic);
                         
             if (!grid.get('filter')) {

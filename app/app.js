@@ -11,7 +11,7 @@ var app_init = function() {
     $(function() {
 		'use strict';
         $.slidebars();
-		new app.HomeView();
+		new app.HomeView({show_loading_graphic:true});
 		new app.ListView();
         new app.FiltersView();
         keepscreenon.enable();//Keep Screen Awake.
