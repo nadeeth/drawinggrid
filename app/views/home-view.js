@@ -15,7 +15,7 @@ var app = app || {};
         // Bind to the relevant events at intialization 
         initialize: function (options) {
             
-            //localStorage.removeItem('current_grid');//Debug
+            options = options ? options : {};
             
             //Retrieve the saved current grid
             var grid = localStorage.getItem('current_grid');
