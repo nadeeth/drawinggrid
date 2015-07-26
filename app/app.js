@@ -15,3 +15,12 @@ document.addEventListener(
     false
 );
 
+document.addEventListener("backbutton", onBackKeyDown, false);
+function onBackKeyDown() {
+    if ($('.sb-active').length) {
+        $('.sb-close').click();
+    } else {
+        navigator.app.exitApp();
+    }
+}
+
