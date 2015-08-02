@@ -85,7 +85,8 @@ and open the template in the editor.
   padding: 30px;
 }
 #list-section {
-  overflow-y: hidden !important;
+  /*overflow-y: hidden !important;*/
+  overflow-y: no-display !important;
   width: 100% !important;
   background-color: rgba(0, 0, 0, 0.8);
 }
