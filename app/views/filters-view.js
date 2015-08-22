@@ -22,6 +22,7 @@ var app = app || {};
                     
                 //VintageJS                   
                 var img = document.getElementById('active-grid-img');
+                if (img.src==='file:///android_asset/www/index.html') { return; }//Very very dirty.
 
                 var options = {
                     onError: function() {
