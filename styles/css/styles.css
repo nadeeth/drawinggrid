@@ -212,6 +212,9 @@ and open the template in the editor.
 #filters-section .dg-filter[data-dg-filter="greenish"] {
   background-image: url('../../img/filter-greenish.jpg');
 }
+#filters-section .dg-filter[data-dg-filter="grayscale"] {
+  background-image: url('../../img/filter-grayscale.jpg');
+}
 .footer {
   background-color: #000;
   width: 100%;
