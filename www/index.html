@@ -103,7 +103,6 @@
 		
         <!-- Main -->
         <script type="text/javascript" src="cordova.js"></script>
-        <script src="app/app.js"></script>        
 		
         <!-- Libraries -->
         <script src="lib/jquery.min.js"></script>
@@ -120,25 +119,12 @@
         <script src="lib/mcpicker.js"></script>
 		
         <!-- App -->
+        <script src="app/config.js"></script>
+        <script src="app/app.js"></script>  
         <script src="app/models/grid.js"></script>
         <script src="app/collections/list.js"></script>
         <script src="app/views/home-view.js"></script>
         <script src="app/views/list-view.js"></script>
         <script src="app/views/filters-view.js"></script>
-        
-        <!-- Debug Mode -->
-        <!--<script src="http://192.168.1.4:8080/target/target-script-min.js#nadeeth"></script>-->
-        
-        <!-- Web Mode -->
-        <!--
-        <script>
-            $(document).ready(function(){
-                $.slidebars();
-                new app.HomeView();
-                new app.ListView();
-                new app.FiltersView();
-            });
-        </script>
-        -->
     </body>
 </html>
