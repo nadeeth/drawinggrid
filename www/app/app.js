@@ -50,7 +50,7 @@ function load_tests() {
         'src/Song.js',
         //Spec files
         'spec/SpecHelper.js',
-        'spec/PlayerSpec.js'
+        'spec/GridSettingsSpec.js'
     ];
     for (var i=0; i < jasmine_files.length; i++) {
         var s = document.createElement("script");

@@ -3,12 +3,36 @@ describe("Grid", function() {
     var home;
 
     beforeEach(function() {
-        //home = new app.HomeView({show_loading_graphic:true});
+        
+        localStorage.removeItem('current_grid');
+        
+        $("#rows").val('3');
+        $("#cols").val('2');
+        $("#img").val('img/sample.jpg');
+        $("#color_code").val('#FF0000');
+        //filter: '',
+        $("#rotation").val('90');
+        
+        $("#save_grid").click();
+        new app.HomeView();
+    });
+    
+    afterEach(function() {
+        
     });
 
-    it("should have app var", function() {
-        expect(app).toEqual(jasmine.any(Object));
+    it("This test grid should have 3 rows, 2 columns, an image rotated to 90 degrees, a red color drid", function() {
+        
+        var current_grid = JSON.parse(localStorage.getItem('current_grid'));
+
+        expect(current_grid.rows).toEqual("3");
+        expect(current_grid.cols).toEqual("2");
+        expect(current_grid.img).toEqual('img/sample.jpg');
+        expect(current_grid.color).toEqual('#FF0000');
+        expect(current_grid.rotation).toEqual('90');
     });
+    
+    
 });
   
 describe("Player", function() {
