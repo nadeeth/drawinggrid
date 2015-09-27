@@ -45,9 +45,6 @@ function load_tests() {
         'lib/jasmine-2.3.4/jasmine.js',
         'lib/jasmine-2.3.4/jasmine-html.js',
         'lib/jasmine-2.3.4/boot.js',
-        //Source files
-        'src/Player.js',
-        'src/Song.js',
         //Spec files
         'spec/SpecHelper.js',
         'spec/GridSettingsSpec.js'
