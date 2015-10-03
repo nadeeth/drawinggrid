@@ -86,7 +86,11 @@ var app = app || {};
         
         get_filtered_image: function() {
             
-            window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+            if (DG_Conf.mode === 'web') {console.log('aa'+localStorage.getItem('filtered_image'));
+                document.getElementById("active-grid-img").src = localStorage.getItem('filtered_image');
+            } else {console.log('bb');
+                window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+            }
 
             function gotFS(fileSystem) {
                 fileSystem.root.getFile("grid_filtered.txt", null, gotFileEntry, fail);

@@ -33,8 +33,12 @@ var app = app || {};
                         var grid = JSON.parse(localStorage.getItem('current_grid'));
                         grid.filter = true;
                         localStorage.setItem('current_grid', JSON.stringify(grid));
-
-                        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+                        
+                        if (DG_Conf.mode === 'web') {
+                            localStorage.setItem('filtered_image', $('#active-grid-img').attr('src'));
+                        } else {
+                            window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+                        }
 
                         function gotFS(fileSystem) {
                             fileSystem.root.getFile("grid_filtered.txt", {create: true, exclusive: false}, gotFileEntry, fail);
