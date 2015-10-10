@@ -86,9 +86,9 @@ var app = app || {};
         
         get_filtered_image: function() {
             
-            if (DG_Conf.mode === 'web') {console.log('aa'+localStorage.getItem('filtered_image'));
+            if (DG_Conf.mode === 'web') {
                 document.getElementById("active-grid-img").src = localStorage.getItem('filtered_image');
-            } else {console.log('bb');
+            } else {
                 window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
             }
 

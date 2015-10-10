@@ -13,16 +13,16 @@ $(document).ready(function(){
         load_tests();
     }
     if (DG_Conf.debugmode) {//weinre debuging
-        var s = document.createElement("script");
-        s.type = "text/javascript";
-        s.src = DG_Conf.debughost + "/target/target-script-min.js#" + DG_Conf.debugid;
-        $("head").append(s);
+//        var s = document.createElement("script");
+//        s.type = "text/javascript";
+//        s.src = DG_Conf.debughost + "/target/target-script-min.js#" + DG_Conf.debugid;
+//        console.log(s.src);
+//        $("head").append(s);
     }
 });
 
 function app_init() {
     'use strict';
-    $.slidebars();
     new app.HomeView({show_loading_graphic:true});
     new app.ListView();
     new app.FiltersView();
