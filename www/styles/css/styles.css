@@ -43,6 +43,7 @@ and open the template in the editor.
   vertical-align: central !important;
   background-color: #000;
   color: #FFFFFF;
+  width: 100%;
 }
 .grid-navbar .menu-left-wrap {
   width: 20%;
@@ -56,7 +57,7 @@ and open the template in the editor.
 }
 .grid-navbar .menu-left-wrap .menu-link-left .icon-bar {
   display: block;
-  height: 5px;
+  height: 8px;
   margin: 5px 0 0;
   width: 100%;
   background-color: #FFFFFF;
@@ -69,6 +70,8 @@ and open the template in the editor.
 .grid-navbar .menu-middle-wrap h6 {
   font-size: 20px;
   margin-top: 24px;
+  font-weight: 400;
+  text-transform: none;
 }
 .grid-navbar .menu-right-wrap {
   width: 20%;
@@ -82,7 +85,7 @@ and open the template in the editor.
   height: 40px;
   float: right;
   width: 60px;
-  padding: 30px;
+  padding: 16px;
 }
 #list-section {
   /*overflow-y: hidden !important;*/
@@ -99,13 +102,20 @@ and open the template in the editor.
   border-bottom: 1px solid #818a92 !important;
   background-color: transparent;
   border-radius: 0;
+  color: #fff;
+  font-weight: 300;
+  text-transform: none;
+}
+#list-section #add_new {
+  overflow-y: hidden;
+  min-height: 500px;
 }
 #list-section #add_new .cols {
   margin-top: 50px;
-  width: 50%;
+  width: 48%;
   height: 214px;
   float: left;
-  padding: 5px;
+  padding: 1%;
 }
 #list-section #add_new .cols #image_preview {
   width: 200px;
@@ -116,14 +126,18 @@ and open the template in the editor.
   border-radius: 50%;
   margin: 0 auto 22px;
 }
-#list-section #add_new .cols .form-control {
-  height: 33px;
-  width: 100%;
-}
-#list-section #add_new .cols .form-group label {
+#list-section #add_new .cols form label {
   color: #fff;
+  font-weight: 300;
+  text-transform: none;
 }
-#list-section #add_new .cols .form-group input {
+#list-section #add_new .cols form .ui-input-text {
+  /* jQuery Mobile style class */
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+#list-section #add_new .cols form input {
   background-color: transparent;
   color: #fff;
   border-radius: 0;
@@ -131,8 +145,10 @@ and open the template in the editor.
   border-left: none;
   border-right: none;
   border-bottom: 1px solid #818a92;
+  height: 33px;
+  width: 100%;
 }
-#list-section #add_new .cols .form-group #color {
+#list-section #add_new .cols form #color {
   border-bottom: 0;
   /*width: 88%;*/
 }
@@ -147,14 +163,18 @@ and open the template in the editor.
   height: 88px;
   border-bottom: 1px solid #5e666b;
   border-top: 1px solid #818a92;
-  border-left: none;
-  border-right: none;
+  border-left: 0;
+  border-right: 0;
+  text-align: center;
   font-size: 20px;
   border-radius: 0;
-  text-align: left;
-  padding-left: 30px;
   padding-top: 15px;
   background-color: transparent;
+  color: #fff;
+  font-weight: 300;
+  text-transform: none;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 #list-section #add_new .button_wrap button span {
   margin-left: 0;
@@ -162,10 +182,10 @@ and open the template in the editor.
 }
 #filters-section {
   background-color: rgba(0, 0, 0, 0.9);
-  max-width: 500px;
   overflow: hidden !important;
-  padding: 5px;
-  width: 60%;
+  /*    max-width: 500px;
+    padding: 5px;
+    width: 60%;*/
 }
 #filters-section .right-back-button {
   float: left;
@@ -177,6 +197,9 @@ and open the template in the editor.
   border-bottom: 1px solid #818a92 !important;
   background-color: transparent;
   border-radius: 0;
+  color: #fff;
+  font-weight: 300;
+  text-transform: none;
 }
 #filters-section .dg-filter {
   width: 50%;
@@ -185,13 +208,16 @@ and open the template in the editor.
   white-space: normal;
   background-position: center;
   background-size: cover;
-  color: #fff;
   border-bottom: 1px solid #818a92;
   border-right: 1px solid #818a92;
   border-left: 1px solid #5e666b;
   border-top: 1px solid #5e666b;
   border-radius: 0;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  color: #fff;
+  font-weight: 300;
+  text-transform: none;
+  margin: 0;
 }
 #filters-section .dg-filter:focus,
 #filters-section .dg-filter:active,
@@ -223,5 +249,9 @@ and open the template in the editor.
   height: 30px;
   position: absolute;
   bottom: 0;
+}
+/* Test Mode : Results */
+.jasmine_html-reporter {
+  position: absolute;
 }
 /*# sourceMappingURL=styles.css.map */

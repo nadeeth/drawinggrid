@@ -32,8 +32,8 @@ function app_init() {
 }
 
 function onBackKeyDown() {
-    if ($('.sb-active').length) {
-        $('.sb-close').click();
+    if ($('.ui-panel-open').length) {
+        $(".ui-panel-open").panel( "close" );
     } else {
         navigator.app.exitApp();
     }
