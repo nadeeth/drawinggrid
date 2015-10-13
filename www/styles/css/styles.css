@@ -108,7 +108,7 @@ and open the template in the editor.
 }
 #list-section #add_new {
   overflow-y: hidden;
-  min-height: 500px;
+  min-height: 550px;
 }
 #list-section #add_new .cols {
   margin-top: 50px;
