@@ -51,13 +51,13 @@ and open the template in the editor.
 }
 .grid-navbar .menu-left-wrap .menu-link-left {
   font-size: 55px;
-  padding: 15px;
-  width: 65px;
+  padding: 18px;
+  width: 55px;
   float: left;
 }
 .grid-navbar .menu-left-wrap .menu-link-left .icon-bar {
   display: block;
-  height: 8px;
+  height: 5px;
   margin: 5px 0 0;
   width: 100%;
   background-color: #FFFFFF;
@@ -71,7 +71,7 @@ and open the template in the editor.
   font-size: 20px;
   margin-top: 24px;
   font-weight: 400;
-  text-transform: none;
+  text-transform: uppercase;
 }
 .grid-navbar .menu-right-wrap {
   width: 20%;
@@ -104,6 +104,7 @@ and open the template in the editor.
   border-radius: 0;
   color: #fff;
   font-weight: 300;
+  font-size: 12px;
   text-transform: none;
 }
 #list-section #add_new {
@@ -118,8 +119,8 @@ and open the template in the editor.
   padding: 1%;
 }
 #list-section #add_new .cols #image_preview {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   background-color: #969696;
   background-size: cover;
   border: 2px solid #818a92;
@@ -130,6 +131,7 @@ and open the template in the editor.
   color: #fff;
   font-weight: 300;
   text-transform: none;
+  font-size: 12px;
 }
 #list-section #add_new .cols form .ui-input-text {
   /* jQuery Mobile style class */
@@ -166,7 +168,7 @@ and open the template in the editor.
   border-left: 0;
   border-right: 0;
   text-align: center;
-  font-size: 20px;
+  font-size: 14px;
   border-radius: 0;
   padding-top: 15px;
   background-color: transparent;
@@ -199,6 +201,7 @@ and open the template in the editor.
   border-radius: 0;
   color: #fff;
   font-weight: 300;
+  font-size: 12px;
   text-transform: none;
 }
 #filters-section .dg-filter {
@@ -249,6 +252,10 @@ and open the template in the editor.
   height: 30px;
   position: absolute;
   bottom: 0;
+}
+/* TODO : remove later, after the new color picker added */
+.minicolors-position-left .minicolors-panel {
+  left: -100px !important;
 }
 /* Test Mode : Results */
 .jasmine_html-reporter {
