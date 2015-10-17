@@ -10,6 +10,8 @@ var app = app || {};
 	'use strict';
 
 	app.Grid = Backbone.Model.extend({
+        
+        localStorage: new Store("settings"),
 
 		// Default attributes
 		defaults: {
@@ -25,4 +27,8 @@ var app = app || {};
             filter: ''
 		}
 	});
+    
+    app.getCurrentGrid = function() {
+        return new app.Grid({ id: 1 });
+    };
 })();

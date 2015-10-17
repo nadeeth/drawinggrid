@@ -19,34 +19,35 @@ var app = app || {};
         // Bind to the relevant events at intialization 
         initialize: function () {
 			this.renderCurrentGrid();
-			//{reset: true} - To suppresses 'add' events for intial loading 
-			app.list.fetch({reset: true});
         },
 
         renderCurrentGrid: function () {
 			
-			var grid = localStorage.getItem('current_grid');
-			var picker_color = 'ff0000';
+            var picker_color = 'ff0000';
 			
-			if (grid) {
-				grid = new app.Grid(JSON.parse(grid));
-				$("#rows").val(grid.get("rows"));
-                $("#cols").val(grid.get("cols"));
-                $("#img").val(grid.get("img"));
-                $("#color_code").val(grid.get("color"));
-                $("#image_preview").css("background-image","url('"+grid.get('img')+"')");
-                $("#rotation").val(grid.get("rotation"));
-                this.rotatePreview(grid.get("rotation"));
-				picker_color = grid.get("color");
-			} else {
-                $("#rows").val('');
-                $("#cols").val('');
-                $("#img").val('');
-                $("#color_code").val('');
-                $("#image_preview").css("background-image","url('')");
-                $("#rotation").val('0');
-				picker_color = '';
-            }
+            var super_list_view = this;
+            
+            app.getCurrentGrid().fetch({
+                success : function (grid, response, options) {
+                    $("#rows").val(grid.get("rows"));
+                    $("#cols").val(grid.get("cols"));
+                    $("#img").val(grid.get("img"));
+                    $("#color_code").val(grid.get("color"));
+                    $("#image_preview").css("background-image","url('"+grid.get('img')+"')");
+                    $("#rotation").val(grid.get("rotation"));
+                    super_list_view.rotatePreview(grid.get("rotation"));
+                    picker_color = grid.get("color");
+                },
+                error : function (grid, response, options) {
+                    $("#rows").val('');
+                    $("#cols").val('');
+                    $("#img").val('');
+                    $("#color_code").val('');
+                    $("#image_preview").css("background-image","url('')");
+                    $("#rotation").val('0');
+                    picker_color = '';
+                }
+            });
 			
             //$("#color").mcpicker();
 			$('#color').minicolors({//Initialize the color picker
@@ -68,8 +69,7 @@ var app = app || {};
                 //img: 'img/sample.jpg',
                 color: $("#color_code").val().trim(),
                 //filter: '',
-                rotation: $("#rotation").val().trim(),
-                order: app.list.nextOrder()
+                rotation: $("#rotation").val().trim()
             };
         },
 
@@ -80,54 +80,49 @@ var app = app || {};
             this.setCurrentGrid(grid);
             new app.HomeView();
         },
-		
-        clearGridsList: function() {
-            app.list.each(function(model) {
-                model.destroy();
-            });
-        },
 
         setCurrentGrid: function(grid) {
-            var current_grid = localStorage.getItem('current_grid');
             
-            //console.log(current_grid);
-            //console.log(grid);
-            
-            if (current_grid) {
-                current_grid = JSON.parse(current_grid);
-                current_grid.rows = grid.rows;
-                current_grid.cols = grid.cols;
-                current_grid.color = grid.color;
-                current_grid.order = grid.order;
-                
-                //Reset the filter, size and position if the image is new
-                if (current_grid.img !== grid.img) {
-                    current_grid.filter = false;
-                    current_grid.img_width = 'auto';
-                    current_grid.position_top = 0;
-                    current_grid.position_left = 0;
+            app.getCurrentGrid().fetch({
+                success : function (model, response, options) {
+                    
+                    model.set("rows", grid.rows);
+                    model.set("cols", grid.cols);
+                    model.set("color", grid.color);
+
+                    //Reset the filter, size and position if the image is new
+                    if (model.get("img") !== grid.img) {
+                        model.set("filter",false);
+                        model.set("img_width",'auto');
+                        model.set("position_top","0");
+                        model.set("position_left","0");
+                    }
+
+                    model.set("img",grid.img);                
+                    model.set("rotation",grid.rotation);                    
+                    model.save();
+                },
+                error : function (model, response, options) {
+                    model.set(grid);
+                    model.save();
                 }
-                
-                current_grid.img = grid.img;                
-                current_grid.rotation = grid.rotation;
-                localStorage.setItem('current_grid', JSON.stringify(current_grid));
-            } else {
-                localStorage.setItem('current_grid', JSON.stringify(grid));
-            }
+            });
         },
         
         clearGrid: function() {
             var r = confirm("Are you sure? This will clear the current saved grid.");
             if (r === true) {
-                localStorage.removeItem('current_grid');
-                new app.HomeView();
-                this.renderCurrentGrid();
+                var super_list_view = this;
+                app.getCurrentGrid().fetch({
+                    success : function (model, response, options) { 
+                        model.destroy(); 
+                        new app.HomeView();
+                        super_list_view.renderCurrentGrid();
+                    }
+                });
+                
                 $("#active-grid-img").attr("src","data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");//Reset Image to 1x1px transparent gif
             }            
-        },
-        
-        getCurrentGrid: function() {
-                return JSON.parse(localStorage.getItem('current_grid'));
         },
         
         getPhotoFile: function() {
