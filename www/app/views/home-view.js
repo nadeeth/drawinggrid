@@ -18,31 +18,44 @@ var app = app || {};
             options = options ? options : {};
             
             //Retrieve the saved current grid
-            var grid = localStorage.getItem('current_grid');
-			grid = grid ? new app.Grid(JSON.parse(grid)) : new app.Grid;            
-			this.draw_grid(grid, options);
+            var super_home_view = this;
+            app.getCurrentGrid().fetch({
+                success : function (grid, response, options) {
+                    
+                    super_home_view.draw_grid(grid, options);//Draw saved grid
+                    
+                    //Pinch zoom
+                    $(super_home_view.el).find("img").pinchzoom({
+                        done: function() {
+                            app.getCurrentGrid().fetch({
+                                success : function (grid, response, options) {
+                                    grid.set("img_width", $('#active-grid-img').css('width'));
+                                    grid.save();
+                                }
+                            });
+                        },
+                        width: grid.get("img_width")
+                    });
+                },
+                error : function (grid, response, options) {
+                    super_home_view.draw_grid(new app.Grid, options);//Draw default grid
+                }
+            });
             
-            //Bind the pinch zoom, drag initilizations
+            //Bind drag initilizations
             $(this.el).find("img").pep({
                 shouldEase: false,
                 useCSSTranslation: false,
                 //debug: true,
                 stop: function() {
-                    var grid = JSON.parse(localStorage.getItem('current_grid'));
-                    grid.position_top = $('#active-grid-img').css('top');
-                    grid.position_left = $('#active-grid-img').css('left');
-                    localStorage.setItem('current_grid', JSON.stringify(grid));
+                    app.getCurrentGrid().fetch({
+                        success : function (grid, response, options) {
+                            grid.set("position_top", $('#active-grid-img').css('top'));
+                            grid.set("position_left", $('#active-grid-img').css('left'));
+                            grid.save();
+                        }
+                    });
                 }
-            });
-
-			$(this.el).find("img").pinchzoom({
-                done: function() {
-                    var img_width = $('#active-grid-img').css('width');
-                    var grid = JSON.parse(localStorage.getItem('current_grid'));
-                    grid.img_width = img_width;
-                    localStorage.setItem('current_grid', JSON.stringify(grid));
-                },
-                width: grid.get("img_width")
             });
         },
 		

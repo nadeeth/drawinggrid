@@ -30,9 +30,12 @@ var app = app || {};
                     },
                     onStop: function(img) {
 
-                        var grid = JSON.parse(localStorage.getItem('current_grid'));
-                        grid.filter = true;
-                        localStorage.setItem('current_grid', JSON.stringify(grid));
+                        app.getCurrentGrid().fetch({
+                            success : function (grid, response, options) {
+                                grid.set("filter",true);
+                                grid.save();
+                            }
+                        });
                         
                         if (DG_Conf.mode === 'web') {
                             localStorage.setItem('filtered_image', $('#active-grid-img').attr('src'));
@@ -61,11 +64,14 @@ var app = app || {};
                 };
 
                 if (!$(this).data('dg-filter')) {
-                    var grid = JSON.parse(localStorage.getItem('current_grid'));
-                    grid.filter = '';
-                    localStorage.setItem('current_grid', JSON.stringify(grid));
-                    button.html(label);
-                    new app.HomeView();
+                    app.getCurrentGrid().fetch({
+                        success : function (grid, response, options) {
+                            grid.set("filter","");
+                            grid.save();
+                            button.html(label);
+                            new app.HomeView();
+                        }
+                    });                    
                 } else {
                     button.html(label + ' : Loading, please wait...');
                     setTimeout(function(){//TODO: use a promise or something
