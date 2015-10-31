@@ -23,12 +23,23 @@ $(document).ready(function(){
 
 function app_init() {
     'use strict';
-    new app.HomeView({show_loading_graphic:true});
-    new app.ListView();
-    new app.FiltersView();
+    app.getCurrentGrid().fetch({
+        success: function(grid, response, options) {
+            load_views(grid);
+        },
+        error : function (grid, response, options) {
+            load_views(new app.Grid);
+        }
+    });
     if (DG_Conf.mode !== 'web') {
         keepscreenon.enable();//Keep Screen Awake.
     }
+}
+
+function load_views(grid) {
+    new app.HomeView({show_loading_graphic:true, model: grid});
+    new app.ListView({model: grid});
+    new app.FiltersView({model: grid});
 }
 
 function onBackKeyDown() {

@@ -6,6 +6,8 @@ var app = app || {};
     app.HomeView = Backbone.View.extend({
 
         el: '#active-grid',
+        
+        show_loading_graphic: false,
 
         // Create New Items
         events: {
@@ -15,32 +17,22 @@ var app = app || {};
         // Bind to the relevant events at intialization 
         initialize: function (options) {
             
-            options = options ? options : {};
+            this.listenTo(this.model, 'change', this.draw_grid);
             
-            //Retrieve the saved current grid
-            var super_home_view = this;
-            app.getCurrentGrid().fetch({
-                success : function (grid, response, options) {
-                    
-                    super_home_view.draw_grid(grid, options);//Draw saved grid
-                    
-                    //Pinch zoom
-                    $(super_home_view.el).find("img").pinchzoom({
-                        done: function() {
-                            app.getCurrentGrid().fetch({
-                                success : function (grid, response, options) {
-                                    grid.set("img_width", $('#active-grid-img').css('width'));
-                                    grid.save();
-                                }
-                            });
-                        },
-                        width: grid.get("img_width")
-                    });
+            this.show_loading_graphic = options.show_loading_graphic;
+            this.draw_grid();//Draw saved grid
+            
+            var super_this = this;
+
+            //Pinch zoom
+            $(this.el).find("img").pinchzoom({
+                done: function() {
+                    super_this.model.set("img_width", $('#active-grid-img').css('width'));
+                    super_this.model.save();
                 },
-                error : function (grid, response, options) {
-                    super_home_view.draw_grid(new app.Grid, options);//Draw default grid
-                }
+                width: super_this.model.get("img_width")
             });
+
             
             //Bind drag initilizations
             $(this.el).find("img").pep({
@@ -48,19 +40,17 @@ var app = app || {};
                 useCSSTranslation: false,
                 //debug: true,
                 stop: function() {
-                    app.getCurrentGrid().fetch({
-                        success : function (grid, response, options) {
-                            grid.set("position_top", $('#active-grid-img').css('top'));
-                            grid.set("position_left", $('#active-grid-img').css('left'));
-                            grid.save();
-                        }
-                    });
+                    super_this.model.set("position_top", $('#active-grid-img').css('top'));
+                    super_this.model.set("position_left", $('#active-grid-img').css('left'));
+                    super_this.model.save();
                 }
             });
         },
 		
 		//Draw grid
-		draw_grid: function(grid, options) {
+		draw_grid: function() {
+            
+            var grid = this.model;
             
 			var grid_html = "";
 			for (var i=0; i<grid.get("rows"); i++) {
@@ -72,7 +62,7 @@ var app = app || {};
 			}
             
 			$(this.el).find(".grid").html(grid_html).find("td").css("border","1px solid "+grid.get("color"));
-            if (grid.get('img') && options.show_loading_graphic) this.set_loading_graphic();
+            if (grid.get('img') && this.show_loading_graphic) this.set_loading_graphic();
             $(this.el).find("img").on("load",this.clear_loading_graphic);
                         
             if (!grid.get('filter')) {

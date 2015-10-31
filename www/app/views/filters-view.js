@@ -15,6 +15,8 @@ var app = app || {};
         // Bind to the relevant events at intialization 
         initialize: function () {
             
+            var super_this = this;
+            
             $('.dg-filter').click(function(){
                 
                 var button = $(this);
@@ -30,12 +32,8 @@ var app = app || {};
                     },
                     onStop: function(img) {
 
-                        app.getCurrentGrid().fetch({
-                            success : function (grid, response, options) {
-                                grid.set("filter",true);
-                                grid.save();
-                            }
-                        });
+                        super_this.model.set("filter",true);
+                        super_this.model.save();
                         
                         if (DG_Conf.mode === 'web') {
                             localStorage.setItem('filtered_image', $('#active-grid-img').attr('src'));
@@ -64,14 +62,10 @@ var app = app || {};
                 };
 
                 if (!$(this).data('dg-filter')) {
-                    app.getCurrentGrid().fetch({
-                        success : function (grid, response, options) {
-                            grid.set("filter","");
-                            grid.save();
-                            button.html(label);
-                            new app.HomeView();
-                        }
-                    });                    
+                    
+                    super_this.model.set("filter","");
+                    super_this.model.save();
+                    button.html(label);
                 } else {
                     button.html(label + ' : Loading, please wait...');
                     setTimeout(function(){//TODO: use a promise or something

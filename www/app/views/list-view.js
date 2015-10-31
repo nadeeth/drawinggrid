@@ -24,30 +24,15 @@ var app = app || {};
         renderCurrentGrid: function () {
 			
             var picker_color = 'ff0000';
-			
-            var super_list_view = this;
-            
-            app.getCurrentGrid().fetch({
-                success : function (grid, response, options) {
-                    $("#rows").val(grid.get("rows"));
-                    $("#cols").val(grid.get("cols"));
-                    $("#img").val(grid.get("img"));
-                    $("#color_code").val(grid.get("color"));
-                    $("#image_preview").css("background-image","url('"+grid.get('img')+"')");
-                    $("#rotation").val(grid.get("rotation"));
-                    super_list_view.rotatePreview(grid.get("rotation"));
-                    picker_color = grid.get("color");
-                },
-                error : function (grid, response, options) {
-                    $("#rows").val('');
-                    $("#cols").val('');
-                    $("#img").val('');
-                    $("#color_code").val('');
-                    $("#image_preview").css("background-image","url('')");
-                    $("#rotation").val('0');
-                    picker_color = '';
-                }
-            });
+
+            $("#rows").val(this.model.get("rows"));
+            $("#cols").val(this.model.get("cols"));
+            $("#img").val(this.model.get("img"));
+            $("#color_code").val(this.model.get("color"));
+            $("#image_preview").css("background-image","url('"+this.model.get('img')+"')");
+            $("#rotation").val(this.model.get("rotation"));
+            this.rotatePreview(this.model.get("rotation"));
+            picker_color = this.model.get("color");
 			
             //$("#color").mcpicker();
 			$('#color').minicolors({//Initialize the color picker
@@ -78,49 +63,35 @@ var app = app || {};
 
             var grid = this.getAttributes();
             this.setCurrentGrid(grid);
-            new app.HomeView();
+            //new app.HomeView();
         },
 
         setCurrentGrid: function(grid) {
-            
-            app.getCurrentGrid().fetch({
-                success : function (model, response, options) {
-                    
-                    model.set("rows", grid.rows);
-                    model.set("cols", grid.cols);
-                    model.set("color", grid.color);
 
-                    //Reset the filter, size and position if the image is new
-                    if (model.get("img") !== grid.img) {
-                        model.set("filter",false);
-                        model.set("img_width",'auto');
-                        model.set("position_top","0");
-                        model.set("position_left","0");
-                    }
+            this.model.set("rows",5);
+   
+            this.model.set("rows", grid.rows);
+            this.model.set("cols", grid.cols);
+            this.model.set("color", grid.color);
 
-                    model.set("img",grid.img);                
-                    model.set("rotation",grid.rotation);                    
-                    model.save();
-                },
-                error : function (model, response, options) {
-                    model.set(grid);
-                    model.save();
-                }
-            });
+            //Reset the filter, size and position if the image is new
+            if (this.model.get("img") !== grid.img) {
+                this.model.set("filter",false);
+                this.model.set("img_width",'auto');
+                this.model.set("position_top","0");
+                this.model.set("position_left","0");
+            }
+
+            this.model.set("img",grid.img);                
+            this.model.set("rotation",grid.rotation);                    
+            this.model.save();
         },
         
         clearGrid: function() {
             var r = confirm("Are you sure? This will clear the current saved grid.");
             if (r === true) {
-                var super_list_view = this;
-                app.getCurrentGrid().fetch({
-                    success : function (model, response, options) { 
-                        model.destroy(); 
-                        new app.HomeView();
-                        super_list_view.renderCurrentGrid();
-                    }
-                });
-                
+                this.model.destroy(); 
+                this.renderCurrentGrid();
                 $("#active-grid-img").attr("src","data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");//Reset Image to 1x1px transparent gif
             }            
         },
