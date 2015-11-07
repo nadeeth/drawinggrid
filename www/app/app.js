@@ -28,7 +28,7 @@ function app_init() {
             load_views(grid);
         },
         error : function (grid, response, options) {
-            load_views(new app.Grid);
+            load_views(new app.Grid({ id: 1 }));
         }
     });
     if (DG_Conf.mode !== 'web') {

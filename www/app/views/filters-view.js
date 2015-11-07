@@ -32,8 +32,7 @@ var app = app || {};
                     },
                     onStop: function(img) {
 
-                        super_this.model.set("filter",true);
-                        super_this.model.save();
+                        super_this.model.save({filter: true});
                         
                         if (DG_Conf.mode === 'web') {
                             localStorage.setItem('filtered_image', $('#active-grid-img').attr('src'));
@@ -63,8 +62,7 @@ var app = app || {};
 
                 if (!$(this).data('dg-filter')) {
                     
-                    super_this.model.set("filter","");
-                    super_this.model.save();
+                    super_this.model.save({filter:""});
                     button.html(label);
                 } else {
                     button.html(label + ' : Loading, please wait...');

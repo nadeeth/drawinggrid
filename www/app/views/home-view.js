@@ -6,8 +6,6 @@ var app = app || {};
     app.HomeView = Backbone.View.extend({
 
         el: '#active-grid',
-        
-        show_loading_graphic: false,
 
         // Create New Items
         events: {
@@ -17,18 +15,18 @@ var app = app || {};
         // Bind to the relevant events at intialization 
         initialize: function (options) {
             
-            this.listenTo(this.model, 'change', this.draw_grid);
-            
-            this.show_loading_graphic = options.show_loading_graphic;
-            this.draw_grid();//Draw saved grid
-            
             var super_this = this;
+            
+            this.listenTo(this.model, 'change', function(){super_this.draw_grid(false);});
+            
+            this.draw_grid(options.show_loading_graphic);//Draw saved grid
 
             //Pinch zoom
             $(this.el).find("img").pinchzoom({
                 done: function() {
-                    super_this.model.set("img_width", $('#active-grid-img').css('width'));
-                    super_this.model.save();
+                    super_this.model.save({
+                        img_width: $('#active-grid-img').css('width')
+                    });
                 },
                 width: super_this.model.get("img_width")
             });
@@ -40,15 +38,16 @@ var app = app || {};
                 useCSSTranslation: false,
                 //debug: true,
                 stop: function() {
-                    super_this.model.set("position_top", $('#active-grid-img').css('top'));
-                    super_this.model.set("position_left", $('#active-grid-img').css('left'));
-                    super_this.model.save();
+                    super_this.model.save({
+                        position_top: $('#active-grid-img').css('top'), 
+                        position_left: $('#active-grid-img').css('left')
+                    });
                 }
             });
         },
 		
 		//Draw grid
-		draw_grid: function() {
+		draw_grid: function(show_loading_graphic) {
             
             var grid = this.model;
             
@@ -62,7 +61,7 @@ var app = app || {};
 			}
             
 			$(this.el).find(".grid").html(grid_html).find("td").css("border","1px solid "+grid.get("color"));
-            if (grid.get('img') && this.show_loading_graphic) this.set_loading_graphic();
+            if (grid.get('img') && show_loading_graphic) this.set_loading_graphic();
             $(this.el).find("img").on("load",this.clear_loading_graphic);
                         
             if (!grid.get('filter')) {

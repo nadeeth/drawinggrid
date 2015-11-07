@@ -68,23 +68,23 @@ var app = app || {};
 
         setCurrentGrid: function(grid) {
 
-            this.model.set("rows",5);
-   
-            this.model.set("rows", grid.rows);
-            this.model.set("cols", grid.cols);
-            this.model.set("color", grid.color);
+            var model = {
+                rows: grid.rows,
+                cols: grid.cols,
+                color: grid.color
+            };
 
             //Reset the filter, size and position if the image is new
             if (this.model.get("img") !== grid.img) {
-                this.model.set("filter",false);
-                this.model.set("img_width",'auto');
-                this.model.set("position_top","0");
-                this.model.set("position_left","0");
+                model.filter = false;
+                model.img_width = 'auto';
+                model.position_top = "0";
+                model.position_left = "0";
             }
 
-            this.model.set("img",grid.img);                
-            this.model.set("rotation",grid.rotation);                    
-            this.model.save();
+            model.img = grid.img;                
+            model.rotation = grid.rotation;                    
+            this.model.save(model);
         },
         
         clearGrid: function() {
