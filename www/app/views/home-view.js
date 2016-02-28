@@ -46,8 +46,8 @@ var app = app || {};
             });
         },
 		
-		//Draw grid
-		draw_grid: function(show_loading_graphic) {
+        //Draw grid
+        draw_grid: function(show_loading_graphic) {
             
             var grid = this.model;
             

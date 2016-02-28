@@ -32,13 +32,13 @@ var app = app || {};
                     },
                     onStop: function(img) {
 
-                        super_this.model.save({filter: true});
-                        
                         if (DG_Conf.mode === 'web') {
-                            localStorage.setItem('filtered_image', $('#active-grid-img').attr('src'));
+                            localStorage.setItem('filtered_image', $('#active-grid-img').prop('src'));
                         } else {
                             window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
                         }
+                        
+                        super_this.model.save({filter: true});
 
                         function gotFS(fileSystem) {
                             fileSystem.root.getFile("grid_filtered.txt", {create: true, exclusive: false}, gotFileEntry, fail);
