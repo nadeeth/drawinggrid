@@ -1,9 +1,9 @@
-var app = app || {};
+define(["jquery","app/config","underscore","backbone","vintageJS/vintage","vintage.presets"], 
+function($, DG_Conf, _, Backbone, VintageJS, vintagePresets) {
 
-(function ($) {
     'use strict';
 
-    app.FiltersView = Backbone.View.extend({//TODO: refactor to improve the code quality
+    return Backbone.View.extend({//TODO: refactor to improve the code quality
 
         el: '#filters-section',
 
@@ -74,4 +74,4 @@ var app = app || {};
             });
         }
     });
-})(jQuery);
+});

@@ -1,23 +1,6 @@
-/**!
- * vintageJS
- * Add a retro/vintage effect to images using the HTML5 canvas element
- *
- * @license Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php) and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
- * @author Robert Fleischmann <rendro87@gmail.com>
- * @version 1.1.4
- **/
-(function(root, factory) {
-    if(typeof exports === 'object') {
-        module.exports = factory();
-    }
-    else if(typeof define === 'function' && define.amd) {
-        define('vintagejs', [], factory);
-    }
-    else {
-        root['VintageJS'] = factory();
-    }
-}(this, function() {
-var VintageJS = function(originalImage, opts, effect) {
+define([], function() {
+    
+  return function(originalImage, opts, effect) {
 
   if (false === (originalImage instanceof HTMLImageElement)) {
     throw 'The element (1st parameter) must be an instance of HTMLImageElement';
@@ -271,5 +254,5 @@ var VintageJS = function(originalImage, opts, effect) {
   };
 };
 
-    return VintageJS;
-}));
+
+});

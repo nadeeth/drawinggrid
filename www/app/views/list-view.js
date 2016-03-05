@@ -1,9 +1,8 @@
-var app = app || {};
+define(["jquery","underscore","backbone","minicolors"], function($, _, Backbone, minicolors) {
 
-(function ($) {
     'use strict';
 
-    app.ListView = Backbone.View.extend({
+    return Backbone.View.extend({
 
         el: '#list-section',
 
@@ -35,13 +34,13 @@ var app = app || {};
             picker_color = this.model.get("color");
 			
             //$("#color").mcpicker();
-			$('#color').minicolors({//Initialize the color picker
-				theme: 'bootstrap',
-				defaultValue: picker_color,
-				change: function(hex, opacity) {
-					$('#color_code').val(hex);
-				}
-			});
+            $('#color').minicolors({//Initialize the color picker
+                theme: 'bootstrap',
+                defaultValue: picker_color,
+                change: function(hex, opacity) {
+                        $('#color_code').val(hex);
+                }
+            });
         },
 		
 		// Get the list of attributes for a new item
@@ -163,4 +162,4 @@ var app = app || {};
         }
 
     });
-})(jQuery);
+});
