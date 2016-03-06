@@ -17,114 +17,90 @@
     <body>
 	
         <div data-role="page">
-        <div id="main">
-            <div class="grid-navbar">
-                <div class="menu-left-wrap">
-                    <a href="#list-section">
-                        <div class="menu-link-left">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </div>
-                    </a>
-                </div>
-                <div class="menu-middle-wrap">
-                    <h6>Drawing Grid</h6>
-                </div>
-                <div class="menu-right-wrap">
-                    <a href="#filters-section">
-                        <div class="menu-link-right"></div>
-                    </a>
-                </div>
-            </div>
-            <div id="active-grid">
-                <img id="active-grid-img"/>
-                <table class="grid"></table>
-            </div>
-            <div class="footer">
-            </div>
-        </div>
-       
-		
-        <div id="list-section" data-dismissible="false" data-position="left" data-role="panel" data-display="overlay">
-            <a href="#main" data-rel="close" class="left-back-button ui-btn ui-icon-arrow-l ui-btn-icon-left ui-shadow ui-corner-all">
-                Back
-            </a>
-            <div id="add_new">
-                <div class="cols">
-                    <div class="button_wrap">
-                        <button class="ui-btn ui-icon-camera ui-btn-icon-left ui-shadow ui-corner-all" id=btn_photo_camera>
-                            Camera
-                        </button>
-                        <button class="ui-btn ui-icon-grid ui-btn-icon-left ui-shadow ui-corner-all" id=btn_photo_file>
-                            Gallery
-                        </button>
-                        <button class="ui-btn ui-icon-check ui-btn-icon-left ui-shadow ui-corner-all" id="save_grid">
-                            Save
-                        </button>
-                        <button class="ui-btn ui-icon-delete ui-btn-icon-left ui-shadow ui-corner-all" id="clear_grid">
-                            Clear
-                        </button>
-                        <button class="ui-btn ui-icon-refresh ui-btn-icon-left ui-shadow ui-corner-all" id="btn_rotate_img">
-                            Rotate
-                        </button>
+            <div id="main">
+                <div class="grid-navbar">
+                    <div class="menu-left-wrap">
+                        <a href="#list-section">
+                            <div class="menu-link-left">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="menu-middle-wrap">
+                        <h6>Drawing Grid</h6>
+                    </div>
+                    <div class="menu-right-wrap">
+                        <a href="#filters-section">
+                            <div class="menu-link-right"></div>
+                        </a>
                     </div>
                 </div>
-                <div class="cols">
-                    <div id="image_preview"></div>
-                    <form>
-                        <label for="color">Grid Color </label><input type="text" readonly="readonly" value="" id="color" placeholder="Grid Color">
-                        <label for="rows">Rows </label><input type="number" id="rows" placeholder="Rows">
-                        <label for="cols">Columns </label><input type="number" id="cols" placeholder="Columns">
-                        <input type="hidden" id="img"/>
-                        <input type="hidden" id="rotation"/>
-                        <input type="hidden" id="color_code"/>
-                    </form>
+                <div id="active-grid">
+                    <img id="active-grid-img"/>
+                    <table class="grid"></table>
+                </div>
+                <div class="footer">
                 </div>
             </div>
-        </div>
-		
-        <div id="filters-section" data-dismissible="false" data-position="right" data-role="panel" data-display="overlay">
-            <a href="#main" data-rel="close" class="right-back-button left-back-button ui-btn ui-icon-arrow-r ui-btn-icon-left ui-shadow ui-corner-all">
-                Close
-            </a>
-            <br /><br /><br />
-            <button type="button" class="dg-filter" data-dg-filter="">Remove Filters</button>
-            <button type="button" class="dg-filter" data-dg-filter="sepia">Sepia</button>
-            <button type="button" class="dg-filter" data-dg-filter="vintage">Vintage</button>
-            <button type="button" class="dg-filter" data-dg-filter="reddish">Reddish</button>
-            <button type="button" class="dg-filter" data-dg-filter="greenish">Greenish</button>
-            <button type="button" class="dg-filter" data-dg-filter="grayscale">Grayscale</button>
-        </div>
+
+
+            <div id="list-section" data-dismissible="false" data-position="left" data-role="panel" data-display="overlay">
+                <a href="#main" data-rel="close" class="left-back-button ui-btn ui-icon-arrow-l ui-btn-icon-left ui-shadow ui-corner-all">
+                    Back
+                </a>
+                <div id="add_new">
+                    <div class="cols">
+                        <div class="button_wrap">
+                            <button class="ui-btn ui-icon-camera ui-btn-icon-left ui-shadow ui-corner-all" id=btn_photo_camera>
+                                Camera
+                            </button>
+                            <button class="ui-btn ui-icon-grid ui-btn-icon-left ui-shadow ui-corner-all" id=btn_photo_file>
+                                Gallery
+                            </button>
+                            <button class="ui-btn ui-icon-check ui-btn-icon-left ui-shadow ui-corner-all" id="save_grid">
+                                Save
+                            </button>
+                            <button class="ui-btn ui-icon-delete ui-btn-icon-left ui-shadow ui-corner-all" id="clear_grid">
+                                Clear
+                            </button>
+                            <button class="ui-btn ui-icon-refresh ui-btn-icon-left ui-shadow ui-corner-all" id="btn_rotate_img">
+                                Rotate
+                            </button>
+                        </div>
+                    </div>
+                    <div class="cols">
+                        <div id="image_preview"></div>
+                        <form>
+                            <label for="color">Grid Color </label><input type="text" readonly="readonly" value="" id="color" placeholder="Grid Color">
+                            <label for="rows">Rows </label><input type="number" id="rows" placeholder="Rows">
+                            <label for="cols">Columns </label><input type="number" id="cols" placeholder="Columns">
+                            <input type="hidden" id="img"/>
+                            <input type="hidden" id="rotation"/>
+                            <input type="hidden" id="color_code"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div id="filters-section" data-dismissible="false" data-position="right" data-role="panel" data-display="overlay">
+                <a href="#main" data-rel="close" class="right-back-button left-back-button ui-btn ui-icon-arrow-r ui-btn-icon-left ui-shadow ui-corner-all">
+                    Close
+                </a>
+                <br /><br /><br />
+                <button type="button" class="dg-filter" data-dg-filter="">Remove Filters</button>
+                <button type="button" class="dg-filter" data-dg-filter="sepia">Sepia</button>
+                <button type="button" class="dg-filter" data-dg-filter="vintage">Vintage</button>
+                <button type="button" class="dg-filter" data-dg-filter="reddish">Reddish</button>
+                <button type="button" class="dg-filter" data-dg-filter="greenish">Greenish</button>
+                <button type="button" class="dg-filter" data-dg-filter="grayscale">Grayscale</button>
+            </div>
         </div><!-- End of the page -->
             
         <!-- Main -->
         <script data-main="app.js" src="require.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
-		
-        <!-- Libraries -->
-        <!--
-        <script src="lib/jquery.min.js"></script>
-        <script src="lib/underscore-min.js"></script>
-        <script src="lib/backbone-min.js"></script>
-        <script src="lib/backbone.localStorage.js"></script>
-        <script src="lib/jquery-mobile/jquery.mobile-1.4.5.min.js"></script>
-        <script src="lib/jquery.pep.js"></script>        
-        <script src="lib/pinch-zoom.js"></script>
-        <script src="lib/vintageJS/vintage.js"></script>
-        <script src="lib/vintageJS/vintage.presets.js"></script>
-        <script src="lib/jquery-minicolors/jquery.minicolors.js"></script>
-        <script src="lib/mcpicker.js"></script>-->
-		
-        <!-- App -->
-        <!--<script src="app/config.js"></script>
-        <script src="app.js"></script>
-        <script src="app/models/grid.js"></script>
-        <script src="app/collections/list.js"></script>
-        <script src="app/views/home-view.js"></script>
-        <script src="app/views/list-view.js"></script>
-        <script src="app/views/filters-view.js"></script>
-        
-        <script src="http://192.168.1.20:8080/target/target-script-min.js#nadeeth"></script>-->
+        <!--<script src="http://192.168.1.20:8080/target/target-script-min.js#nadeeth"></script>-->
     </body>
 </html>

@@ -9,6 +9,10 @@ requirejs.config({
     paths: {
         app: '../app',
         minicolors : 'jqueryminicolors/minicolors',
+        jasmine: 'jasmine-2.3.4/jasmine',
+        jasminehtml: 'jasmine-2.3.4/jasmine-html',
+        boot: 'jasmine-2.3.4/boot',
+        spec: '../spec'
     },
     
     shim: {
@@ -23,6 +27,17 @@ requirejs.config({
         'minicolors': {
             deps: ['jquery'],
             exports: 'minicolors'
+        },
+        jasmine: {
+            exports: 'jasmine'
+        },
+        'jasminehtml': {
+            deps: ['jasmine'],
+            exports: 'jasminehtml'
+        },
+        'boot': {
+            deps: ['jasmine','jasminehtml'],
+            exports: 'boot'
         }
     }
 });
@@ -80,21 +95,11 @@ function   ($, DG_Conf, HomeView, ListView, FiltersView, Grid, jquerymobile) {
     }
 
     function load_tests() {
-        var jasmine_files = [
-            //Jasmine Library
-            'lib/jasmine-2.3.4/jasmine.js',
-            'lib/jasmine-2.3.4/jasmine-html.js',
-            'lib/jasmine-2.3.4/boot.js',
-            //Spec files
-            'spec/SpecHelper.js',
-            'spec/GridSettingsSpec.js'
-        ];
-        for (var i=0; i < jasmine_files.length; i++) {
-            var s = document.createElement("script");
-            s.type = "text/javascript";
-            s.src = jasmine_files[i];
-            $("head").append(s);
-        }
+
+        require(['spec/GridSettingsSpec'], function (GSS) {
+            window.onload();
+        });
+
         var s = document.createElement("link");
         s.rel = "stylesheet";
         s.href = "lib/jasmine-2.3.4/jasmine.css";
