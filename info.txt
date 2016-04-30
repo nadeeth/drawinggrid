@@ -1,0 +1,35 @@
+Node version: v0.10.42
+
+Cordova version: 5.4.1
+
+Config.xml file: 
+
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" id="com.butterflyray.DrawingGrid" version="1.0.2">
+    <name>Drawing Grid</name>
+    <description>
+        A tool to draw and enlarge images with the Grid Method. 
+    </description>
+    <author email="drawinGdrid@butterflyray.com" href="http://butterflyray.com">
+        ButterflyRay DrawingGrid Team
+    </author>
+    <preference name="permissions" value="none"/>
+    <content src="index.html"/>
+    <access origin="*"/>
+    
+    <icon src="res/icon.png" />
+    <platform name="android">
+        <icon src="res/android/icon-ldpi.png" density="ldpi" />
+        <icon src="res/android/icon-mdpi.png" density="mdpi" />
+        <icon src="res/android/icon-hdpi.png" density="hdpi" />
+        <icon src="res/android/icon-xhdpi.png" density="xhdpi" />
+    </platform>
+</widget>
+
+
+Plugins: 
+
+com.mediamatrixdoo.keepscreenon,org.apache.cordova.camera,org.apache.cordova.file,org.apache.cordova.media,org.apache.cordova.media-capture
+
+No Platforms Currently Installed
+
