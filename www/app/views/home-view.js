@@ -51,16 +51,16 @@ function($, DG_Conf, _, Backbone, pinchzoom, jquerypep) {
 
             var grid = this.model;
 
-                        var grid_html = "";
-                        for (var i=0; i<grid.get("rows"); i++) {
-                                grid_html += "<tr>";
-                                for (var j=0; j<grid.get("cols"); j++) {
-                                        grid_html += "<td></td>";
-                                }
-                                grid_html += "</tr>";
-                        }
+            var grid_html = "";
+            for (var i=0; i<grid.get("rows"); i++) {
+                grid_html += "<tr>";
+                for (var j=0; j<grid.get("cols"); j++) {
+                    grid_html += "<td></td>";
+                }
+                grid_html += "</tr>";
+            }
 
-                        $(this.el).find(".grid").html(grid_html).find("td").css("border","1px solid "+grid.get("color"));
+            $(this.el).find(".grid").html(grid_html).find("td").css("border","1px solid "+grid.get("color"));
             if (grid.get('img') && show_loading_graphic) this.set_loading_graphic();
             $(this.el).find("img").on("load",this.clear_loading_graphic);
 
@@ -73,7 +73,7 @@ function($, DG_Conf, _, Backbone, pinchzoom, jquerypep) {
 
             $(this.el).find("img").css("left",grid.get("position_left"));
             $(this.el).find("img").css("top",grid.get("position_top"));
-                        $(this.el).find("img").css("width",grid.get("img_width")+" !important");
+            $(this.el).find("img").css("width",grid.get("img_width")+" !important");
             //$(this.el).find("img").css("height",'auto');
 
             $(this.el).find("img").css({  
@@ -84,7 +84,7 @@ function($, DG_Conf, _, Backbone, pinchzoom, jquerypep) {
                 'transform': 'rotate(' + grid.get("rotation") + 'deg)'          //Firefox 16+, Opera 12.50+
             });
 
-                },
+        },
 
         get_filtered_image: function() {
 

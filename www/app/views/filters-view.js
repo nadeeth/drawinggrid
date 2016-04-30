@@ -3,7 +3,7 @@ function($, DG_Conf, _, Backbone, VintageJS, vintagePresets) {
 
     'use strict';
 
-    return Backbone.View.extend({//TODO: refactor to improve the code quality
+    return Backbone.View.extend({
 
         el: '#filters-section',
 
@@ -22,9 +22,10 @@ function($, DG_Conf, _, Backbone, VintageJS, vintagePresets) {
                 var button = $(this);
                 var label = button.html();
                     
-                //VintageJS                   
                 var img = document.getElementById('active-grid-img');
-                if (img.src==='file:///android_asset/www/index.html') { return; }//Very very dirty.
+                if (!img.src) { 
+                    return;
+                }
 
                 var options = {
                     onError: function() {
