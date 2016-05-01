@@ -21,6 +21,9 @@
         },
         "org.apache.cordova.media-capture": {
             "PACKAGE_NAME": "com.butterflyray.DrawingGrid"
+        },
+        "com.darktalker.cordova.screenshot": {
+            "PACKAGE_NAME": "com.butterflyray.DrawingGrid"
         }
     },
     "dependent_plugins": {}

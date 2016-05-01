@@ -17,7 +17,7 @@ define(["jquery","underscore","backbone","minicolors"], function($, _, Backbone,
 
         // Bind to the relevant events at intialization 
         initialize: function () {
-			this.renderCurrentGrid();
+            this.renderCurrentGrid();
         },
 
         renderCurrentGrid: function () {
@@ -105,7 +105,8 @@ define(["jquery","underscore","backbone","minicolors"], function($, _, Backbone,
                     quality: 50, 
                     destinationType: navigator.camera.DestinationType.FILE_URI,
                     sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY 
-                });
+                }
+            );
         },
         
         getPhotoCamera: function() {

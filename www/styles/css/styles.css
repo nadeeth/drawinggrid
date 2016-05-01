@@ -77,15 +77,22 @@ and open the template in the editor.
   width: 20%;
   float: left;
 }
-.grid-navbar .menu-right-wrap .menu-link-right {
+.grid-navbar .menu-right-wrap .menu-link-export {
+  background-image: url("../../img/save-as-24.png");
+  right: 55px;
+}
+.grid-navbar .menu-right-wrap .menu-link-filter {
   background-image: url("../../img/filter.png");
+  right: 0;
+}
+.grid-navbar .menu-right-wrap .menu-link-right {
   background-position: center center;
   background-repeat: no-repeat;
   font-size: 55px;
   height: 40px;
-  float: right;
   width: 60px;
-  padding: 16px;
+  padding: 16px 0 16px 0;
+  position: absolute;
 }
 #list-section {
   /*overflow-y: hidden !important;*/
@@ -226,7 +233,7 @@ and open the template in the editor.
 #filters-section .dg-filter:active,
 #filters-section .dg-filter:hover {
   color: #000;
-  text-shadow: -1px 0 #ffffff, 0 1px #ffffff, 1px 0 #ffffff, 0 -1px #ffffff;
+  text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
 }
 #filters-section .dg-filter[data-dg-filter=""] {
   background-image: url('../../img/filter-no.jpg');
