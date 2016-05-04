@@ -49,29 +49,26 @@ and open the template in the editor.
   width: 20%;
   float: left;
 }
+.grid-navbar .menu-left-wrap .menu-link-settings {
+  background-image: url("../../img/menu.png");
+  left: 0;
+}
 .grid-navbar .menu-left-wrap .menu-link-left {
+  background-position: center center;
+  background-repeat: no-repeat;
   font-size: 55px;
-  padding: 18px;
-  width: 55px;
-  float: left;
+  height: 40px;
+  width: 60px;
+  padding: 16px 0 16px 0;
+  position: absolute;
 }
-.grid-navbar .menu-left-wrap .menu-link-left .icon-bar {
-  display: block;
-  height: 5px;
-  margin: 5px 0 0;
-  width: 100%;
-  background-color: #FFFFFF;
-}
-.grid-navbar .menu-middle-wrap {
-  text-align: center !important;
-  width: 60%;
-  float: left;
-}
-.grid-navbar .menu-middle-wrap h6 {
-  font-size: 20px;
+.grid-navbar .menu-left-wrap h6 {
+  font-size: 18px;
   margin-top: 24px;
   font-weight: 400;
   text-transform: uppercase;
+  position: absolute;
+  left: 62px;
 }
 .grid-navbar .menu-right-wrap {
   width: 20%;
