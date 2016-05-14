@@ -65,7 +65,7 @@
     "com.darktalker.cordova.screenshot": {
         "source": {
             "type": "git",
-            "url": "https://github.com/gitawego/cordova-screenshot.git",
+            "url": "https://github.com/nadeeth/cordova-screenshot.git",
             "subdir": "."
         },
         "is_top_level": true,

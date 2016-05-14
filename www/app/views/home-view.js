@@ -137,7 +137,7 @@ function($, DG_Conf, _, Backbone, pinchzoom, jquerypep) {
                     $("#mainPopup").find("p").html("Image saved in : "+res.filePath);
                     $("#mainPopup").popup( "open" );
                 }
-            },'jpg',50,'drawing_grid');
+            });
         }
 
     });
