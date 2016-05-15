@@ -24,6 +24,9 @@
         },
         "com.darktalker.cordova.screenshot": {
             "PACKAGE_NAME": "com.butterflyray.DrawingGrid"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.butterflyray.DrawingGrid"
         }
     },
     "dependent_plugins": {}

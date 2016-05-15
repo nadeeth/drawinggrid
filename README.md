@@ -26,3 +26,6 @@ cordova plugin add https://github.com/nadeeth/cordova-screenshot.git
 ```
 cordova plugin add git://github.com/zoxxx/PhoneGap-KeepScreenOn-plugin.git
 ```
+```
+cordova plugin add https://github.com/apache/cordova-plugin-splashscreen.git
+```
