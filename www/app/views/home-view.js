@@ -16,24 +16,29 @@ function($, DG_Conf, _, Backbone, pinchzoom, jquerypep) {
         initialize: function (options) {
 
             var super_this = this;
+            var Img = $(this.el).find("img");
 
             this.listenTo(this.model, 'change', function(){super_this.draw_grid(false);});
 
             this.draw_grid(options.show_loading_graphic);//Draw saved grid
 
             //Pinch zoom
-            $(this.el).find("img").pinchzoom({
-                done: function() {
-                    super_this.model.save({
-                        img_width: $('#active-grid-img').css('width')
-                    });
-                },
-                width: super_this.model.get("img_width")
+            Img.load(function(){
+                Img.pinchzoom({
+                    done: function() {
+                        super_this.model.save({
+                            img_width: $('#active-grid-img').css('width')
+                        });
+                    },
+                    width: super_this.model.get("img_width"),
+                    min_width: 400,
+                    step: 4
+                });
             });
 
 
             //Bind drag initilizations
-            $(this.el).find("img").pep({
+            Img.pep({
                 shouldEase: false,
                 useCSSTranslation: false,
                 //debug: true,

@@ -39,10 +39,10 @@
                 if (prev_distance) {
 
                     if (cur_distance > prev_distance) {//Zoom In
-                        width += 10;
+                        width += options.step ? options.step : 10;
                     }
                     if ((cur_distance < prev_distance) && (width > options.min_width)) {//Zoom Out
-                        width -= 10;
+                        width -= options.step ? options.step : 10;
                     }
 
                     //Keep the higth auto to preserve the original aspect ratio
