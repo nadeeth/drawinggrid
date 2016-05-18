@@ -34,7 +34,8 @@ define(["jquery","underscore","backbone","minicolors"], function($, _, Backbone,
             picker_color = this.model.get("color");
 			
             //$("#color").mcpicker();
-            $('#color').minicolors({//Initialize the color picker
+            //Initialize the color picker
+            $('#color').minicolors({
                 theme: 'bootstrap',
                 defaultValue: picker_color,
                 change: function(hex, opacity) {

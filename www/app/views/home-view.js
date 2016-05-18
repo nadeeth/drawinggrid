@@ -31,7 +31,7 @@ function($, DG_Conf, _, Backbone, pinchzoom, jquerypep) {
                         });
                     },
                     width: super_this.model.get("img_width"),
-                    min_width: 400,
+                    min_width: $(document).width() - 40,
                     step: 4
                 });
             });
