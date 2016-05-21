@@ -11,6 +11,7 @@ define(["jquery","underscore","backbone","backbone.localStorage"], function($, _
             //title: 'Default',
             rows: 4,
             cols: 3,
+            square: 0,
             img: '',
             img_width: 'auto',
             color: '#FF0000',

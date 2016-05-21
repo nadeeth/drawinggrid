@@ -56,16 +56,31 @@ function($, DG_Conf, _, Backbone, pinchzoom, jquerypep) {
 
             var grid = this.model;
 
-            var grid_html = "";
+            var frame_height = $("#active-grid").height();
+            var frame_width = $("#active-grid").width();
+            var cell_size = frame_height / grid.get("rows");
+            var num_of_cols = grid.get("square") ? frame_width / cell_size : grid.get("cols");
+
+            var grid_html = '<colgroup>';
+            for (var h=0; h<num_of_cols; h++) {
+                if (grid.get("square")) {
+                    grid_html += '<col style="width:'+(h+1 > num_of_cols ? 'auto' : cell_size+'px')+'">';
+                } else {
+                    grid_html += '<col>';
+                }
+            }
+            grid_html += '</colgroup><tbody>';
+
             for (var i=0; i<grid.get("rows"); i++) {
                 grid_html += "<tr>";
-                for (var j=0; j<grid.get("cols"); j++) {
+                for (var j=0; j<num_of_cols; j++) {
                     grid_html += "<td></td>";
                 }
                 grid_html += "</tr>";
             }
+            grid_html += "</tbody>";
 
-            $(this.el).find(".grid").html(grid_html).find("td").css("border","1px solid "+grid.get("color"));
+            $(this.el).find(".grid").html(grid_html).find("td").css({"border":"1px solid "+grid.get("color")});            
             if (grid.get('img') && show_loading_graphic) this.set_loading_graphic();
             $(this.el).find("img").on("load",this.clear_loading_graphic);
 

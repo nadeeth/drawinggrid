@@ -12,7 +12,9 @@ define(["jquery","underscore","backbone","minicolors"], function($, _, Backbone,
             'click #btn_photo_camera':'getPhotoCamera',
             'click #btn_photo_file':'getPhotoFile',
             'click #btn_rotate_img':'rotateImg',
-            'click #clear_grid':'clearGrid'
+            'click #clear_grid':'clearGrid',
+            'change #square_cells':'squareOptionChange',
+            'change input':'saveGrid'
         },
 
         // Bind to the relevant events at intialization 
@@ -26,6 +28,12 @@ define(["jquery","underscore","backbone","minicolors"], function($, _, Backbone,
 
             $("#rows").val(this.model.get("rows"));
             $("#cols").val(this.model.get("cols"));
+            
+            if (this.model.get("square")) {
+                $("#square_cells").prop("checked",true).checkboxradio('refresh');
+                $("#cols").prop("disabled",true);
+            }
+            
             $("#img").val(this.model.get("img"));
             $("#color_code").val(this.model.get("color"));
             $("#image_preview").css("background-image","url('"+this.model.get('img')+"')");
@@ -46,26 +54,22 @@ define(["jquery","underscore","backbone","minicolors"], function($, _, Backbone,
             });
         },
 		
-		// Get the list of attributes for a new item
+	// Get the list of attributes for a new item
         getAttributes: function () {
             return {
-                //title: $("#title").val().trim(),
                 rows: $("#rows").val().trim(),
                 cols: $("#cols").val().trim(),
+                square: $("#square_cells:checked").val()?1:0,
                 img: $("#img").val().trim(),
-                //img: 'img/sample.jpg',
                 color: $("#color_code").val().trim(),
-                //filter: '',
                 rotation: $("#rotation").val().trim()
             };
         },
 
         // Add grid
         saveGrid: function (e) {
-
             var grid = this.getAttributes();
             this.setCurrentGrid(grid);
-            //new app.HomeView();
         },
 
         setCurrentGrid: function(grid) {
@@ -73,6 +77,7 @@ define(["jquery","underscore","backbone","minicolors"], function($, _, Backbone,
             var model = {
                 rows: grid.rows,
                 cols: grid.cols,
+                square: grid.square,
                 color: grid.color
             };
 
@@ -163,6 +168,10 @@ define(["jquery","underscore","backbone","minicolors"], function($, _, Backbone,
                 '-o-transform': 'rotate(' + rotation + 'deg)',       //Opera 10.5-12.00  
                 'transform': 'rotate(' + rotation + 'deg)'          //Firefox 16+, Opera 12.50+
             });
+        },
+        
+        squareOptionChange: function(e) {
+            $("#cols").prop("disabled",e.target.checked);
         }
 
     });

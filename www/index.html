@@ -74,9 +74,10 @@
                     <div class="cols">
                         <div id="image_preview"></div>
                         <form>
-                            <label for="color">Grid Color </label><input type="text" readonly="readonly" value="" id="color" placeholder="Grid Color">
-                            <label for="rows">Rows </label><input type="number" id="rows" placeholder="Rows">
-                            <label for="cols">Columns </label><input type="number" id="cols" placeholder="Columns">
+                            <label for="color" class="text">Grid Color </label><input class="text" type="text" readonly="readonly" value="" id="color">
+                            <label for="rows" class="text">Rows </label><input class="text" type="number" id="rows">
+                            <label for="cols" class="text">Columns </label><input class="text" type="number" id="cols">
+                            <input type="checkbox" value="1" id="square_cells"><label for="square_cells" class="checkbox">Square Cells </label>
                             <input type="hidden" id="img"/>
                             <input type="hidden" id="rotation"/>
                             <input type="hidden" id="color_code"/>

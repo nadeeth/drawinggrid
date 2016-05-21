@@ -15,7 +15,6 @@ function ($, jasmine, jasminehtml, boot, Grid) {
             $("#color_code").val('#FF0000');
             $("#color_code").val('#FF0000');
             $("#color").val('#FF0000');
-            //filter: '',
             $("#rotation").val('90');
 
             $("#save_grid").click();
@@ -57,7 +56,7 @@ function ($, jasmine, jasminehtml, boot, Grid) {
             //TODO: Find a way to test Drag and Pinch Zoom
         });
 
-        describe("Settings:", function() {
+        describe("Settings - Rotate:", function() {
 
             it("If you press rotate and save, preview should rotate, saved grid have new rotation.", function() {
 
@@ -78,6 +77,25 @@ function ($, jasmine, jasminehtml, boot, Grid) {
             });
 
             //TODO: Finda a way to test Camera, Gallery, Clear.
+        });
+        
+        describe("Settings - Square Cells:", function() {
+
+            it("If you turn on Square Cells, Grid cells should have equal widths and heights", function() {
+
+                $("#square_cells").click();
+
+                getCurrentGrid().fetch({
+                    success : function (grid, response, options) {
+                        expect(grid.get("square")).toEqual(1);
+                        var firstcell = $("#active-grid table").find("tr:first td:first");
+                        expect(firstcell.width()).toEqual(firstcell.height());
+                    },
+                    error : function (grid, response, options) {
+
+                    }
+                });
+            });
         });
 
         describe("Filters:", function() {
