@@ -92,7 +92,7 @@ function($, DG_Conf, _, Backbone, pinchzoom, jquerypep) {
             }
             
             if (grid.get("square")) {
-                var width_fix = 100+(num_of_cols * 0.15);
+                var width_fix = 100+(num_of_cols * 0.18);
                 $(this.el).find(".grid").css({"width": width_fix+"%"});
             } else {
                 $(this.el).find(".grid").css({"width":"100%"});
