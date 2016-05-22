@@ -90,12 +90,16 @@ function($, DG_Conf, _, Backbone, pinchzoom, jquerypep) {
             } else {
                 this.get_filtered_image();
             }
-            //$(this.el).find("img").attr("src", grid.get('img'));
+            
+            if (grid.get("square")) {
+                $(this.el).find(".grid").css({"width":"101%"});
+            } else {
+                $(this.el).find(".grid").css({"width":"100%"});
+            }
 
             $(this.el).find("img").css("left",grid.get("position_left"));
             $(this.el).find("img").css("top",grid.get("position_top"));
             $(this.el).find("img").css("width",grid.get("img_width")+" !important");
-            //$(this.el).find("img").css("height",'auto');
 
             $(this.el).find("img").css({  
                 '-webkit-transform': 'rotate(' + grid.get("rotation") + 'deg)',  //Safari 3.1+, Chrome  
