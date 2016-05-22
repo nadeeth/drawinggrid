@@ -53,44 +53,27 @@ define(["jquery","underscore","backbone","minicolors"], function($, _, Backbone,
                 });
             });
         },
-		
-	// Get the list of attributes for a new item
-        getAttributes: function () {
-            return {
+
+        // Add grid
+        saveGrid: function() {
+
+            var model = {
                 rows: $("#rows").val().trim(),
                 cols: $("#cols").val().trim(),
                 square: $("#square_cells:checked").val()?1:0,
-                img: $("#img").val().trim(),
-                color: $("#color_code").val().trim(),
-                rotation: $("#rotation").val().trim()
-            };
-        },
-
-        // Add grid
-        saveGrid: function (e) {
-            var grid = this.getAttributes();
-            this.setCurrentGrid(grid);
-        },
-
-        setCurrentGrid: function(grid) {
-
-            var model = {
-                rows: grid.rows,
-                cols: grid.cols,
-                square: grid.square,
-                color: grid.color
+                color: $("#color_code").val().trim()
             };
 
             //Reset the filter, size and position if the image is new
-            if (this.model.get("img") !== grid.img) {
+            if (this.model.get("img") !== $("#img").val().trim()) {
                 model.filter = false;
                 model.img_width = 'auto';
                 model.position_top = "0";
                 model.position_left = "0";
             }
 
-            model.img = grid.img;                
-            model.rotation = grid.rotation;                    
+            model.img = $("#img").val().trim();                
+            model.rotation = $("#rotation").val().trim();                    
             this.model.save(model);
         },
         
