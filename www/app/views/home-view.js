@@ -56,15 +56,16 @@ function($, DG_Conf, _, Backbone, pinchzoom, jquerypep) {
 
             var grid = this.model;
 
-            var frame_height = $("#active-grid").height();
-            var frame_width = $("#active-grid").width();
+            var frame_height = $(document).height()-80;
+            var frame_width = $(document).width();
             var cell_size = frame_height / grid.get("rows");
             var num_of_cols = grid.get("square") ? frame_width / cell_size : grid.get("cols");
 
             var grid_html = '<colgroup>';
             for (var h=0; h<num_of_cols; h++) {
                 if (grid.get("square")) {
-                    grid_html += '<col style="width:'+(h+1 > num_of_cols ? 'auto' : cell_size+'px')+'">';
+                    var cur_coll = '<col style="width:'+(h+1 > num_of_cols ? 'auto' : cell_size+'px')+'">';
+                    grid_html += cur_coll;
                 } else {
                     grid_html += '<col>';
                 }

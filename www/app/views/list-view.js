@@ -43,14 +43,12 @@ define(["jquery","underscore","backbone","minicolors"], function($, _, Backbone,
 			
             //$("#color").mcpicker();
             //Initialize the color picker
-            $(function() {
-                $('#color').minicolors({
-                    theme: 'bootstrap',
-                    defaultValue: picker_color,
-                    change: function(hex, opacity) {
-                            $('#color_code').val(hex);
-                    }
-                });
+            $('#color').minicolors({
+                theme: 'bootstrap',
+                defaultValue: picker_color,
+                change: function(hex, opacity) {
+                        $('#color_code').val(hex);
+                }
             });
         },
 

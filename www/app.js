@@ -67,17 +67,20 @@ function   ($, DG_Conf, HomeView, ListView, FiltersView, Grid, jquerymobile) {
 
     function app_init() {
         'use strict';
-        getCurrentGrid().fetch({
-            success: function(grid, response, options) {
-                load_views(grid);
-            },
-            error : function (grid, response, options) {
-                load_views(new Grid({ id: 1 }));
+        
+        $(function() {
+            getCurrentGrid().fetch({
+                success: function(grid, response, options) {
+                    load_views(grid);
+                },
+                error : function (grid, response, options) {
+                    load_views(new Grid({ id: 1 }));
+                }
+            });
+            if (DG_Conf.mode !== 'web') {
+                keepscreenon.enable();//Keep Screen Awake.
             }
         });
-        if (DG_Conf.mode !== 'web') {
-            keepscreenon.enable();//Keep Screen Awake.
-        }
     }
 
     function load_views(grid) {
