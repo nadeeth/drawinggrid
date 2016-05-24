@@ -57,7 +57,7 @@ function($, DG_Conf, _, Backbone, pinchzoom, jquerypep) {
             var grid = this.model;
 
             var frame_height = $(document).height()-55;
-            var frame_width = $(document).width();
+            var frame_width = $(document).width()+200;
             var cell_size = frame_height / grid.get("rows");
             var num_of_cols = grid.get("square") ? frame_width / cell_size : grid.get("cols");
 
@@ -92,8 +92,8 @@ function($, DG_Conf, _, Backbone, pinchzoom, jquerypep) {
             }
             
             if (grid.get("square")) {
-                var width_fix = 100+(num_of_cols * 0.18);
-                $(this.el).find(".grid").css({"width": width_fix+"%"});
+                var width_fix = frame_width+200;
+                $(this.el).find(".grid").css({"width": frame_width+"px"});
             } else {
                 $(this.el).find(".grid").css({"width":"100%"});
             }
